@@ -1,0 +1,385 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+ <head>
+		<title>惠州城市职业学院高级评价系统 - 教师主页</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link rel="styleSheet" href="css/reset.css">
+		<link rel="styleSheet" href="css/index_css.css">
+		<script src="js/jquery-1.11.1.js"></script>
+		<link rel="stylesheet" type="text/css" href="./bs/css/bootstrap.min.css">
+				<script type="text/javascript" src="./js/ichart.1.2.1.min.js"></script>
+		<link rel="stylesheet" href="./css/demo.css" type="text/css"/>
+		 <link rel="stylesheet" type="text/css" href="./css/radarChart.css">
+ </head>
+ <body>
+ <nav class="navbar navbar-default navbar-fixed-top" style="background:#333;">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" style="border:none;" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#" style="color:#E0E0E0;">学生评价系统</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li ><a href="./admin.html" style="color:#E0E0E0;">首页<span class="sr-only">(current)</span></a></li>
+       
+      </ul>
+      <form class="navbar-form navbar-left">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="输入内容搜索学生名">
+        </div>
+        <button type="submit" class="btn btn-default" style="border:none;background:none;"><img style="width:25px;height:25px;" src="./images/shousuo.png">
+        </button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"style="color:#E0E0E0;
+          background:none;">欢迎: 张凌老师 <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">修改资料</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+<div class="row">
+<div class="col-lg-12">1</div>
+<div class="col-lg-12">1</div>
+			<div class="col-lg-12">
+			<div class="page-header">
+				 <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target=".bs-example-modal-sm">导入学生数据</button>
+			  <h3>班级学习成绩</h3>
+			</div>
+			</div>
+					<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+					  <div class="modal-dialog modal-sm" role="document">
+					    <div class="modal-content">
+					    	
+					    <form action="1.php" method="post">
+						 <div class="form-group">
+					    <label for="exampleInputFile">选择elsx</label>
+					    <input type="file" id="exampleInputFile">
+					  </div>
+							<div class="modal-footer">
+				        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				        <button type="submit" class="btn btn-primary">导入</button>
+
+				      </div>
+				      	</form>
+					    </div>
+					  </div>
+					</div>
+
+</div>
+</div>
+<div class="container-fluid">
+<div class="row">
+	<div class="col-lg-12" >
+
+
+
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>学生名</th>
+			<th>学号</th>
+			<th>学校</th>
+			<th>电子商务概念</th>
+			<th>市场营销</th>
+			<th>网页设计</th>
+			<th>心理健康教育</th>
+			<th>大学英语</th>
+			<th style="width:10%;">操作</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>560001</td>
+			<td>560001</td>
+			<td>560001</td>
+			<td>560001</td>
+			<td>560001</td>
+			<td>560001</td>
+			<td>560001</td>
+			<td>560001</td>
+			<td><a href="">删除</a>&nbsp&nbsp&nbsp|&nbsp&nbsp<a href="">修改</a></td>
+		</tr>
+
+	</tbody>
+</table>
+
+		</div>
+<div class="col-lg-12" >
+
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<th>学生名</th>
+			<th>学号</th>
+			<th>学校</th>
+			<th>网络广告</th>
+			<th>网络销售</th>
+			<th>商务创业实务</th>
+			<th>推销与谈判</th>
+			<th>规划设计实训</th>
+			<th style="width:10%;">操作</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>560001</td>
+			<td>560001</td>
+			<td>560001</td>
+			<td>560001</td>
+			<td>560001</td>
+			<td>560001</td>
+			<td>560001</td>
+			<td>560001</td>
+			<td><a href="">删除</a>&nbsp&nbsp&nbsp|&nbsp&nbsp<a href="">修改</a></td>
+		</tr>
+
+	</tbody>
+</table>
+
+		</div>
+</div>
+
+				
+</div>
+ </body>
+ <script  src="./jquery.min.js"></script>
+<script src="./bs/js/bootstrap.min.js"></script>
+<script src="echarts/build/dist/echarts.js"></script>
+<script type="text/javascript" src="./js/radarChart.js"></script>
+<script type="text/javascript">
+		$(function(){
+			var data = [
+			        	{
+			        		name : '人数',
+			        		value:[4,16,18,24,32,36,50,38,36,0,20,14],
+			        		color:'#aad0db',
+			        		line_width:2
+			        	},
+			        	{
+			        		name : '平均薪资',
+			        		value:[1,1,12,20,26,30,32,29,22,0,0,0],
+			        		color:'#f68f70',
+			        		line_width:2
+			        	}
+			        ];
+		    
+			var labels = ["01月","02月","03月","04月","05月","06月","07月","08月","09月","10月","11月","12月"];
+			
+			var chart = new iChart.Area2D({
+				render : 'can',
+				data: data,
+				title : '班级就业指数',
+				width :800,
+				height : 400,
+				legend : {
+					enable : true,
+					row:1,//设置在一行上显示，与column配合使用
+					column : 'max',
+					valign:'top',
+					background_color:null,//设置透明背景
+					offsetx:-30,//设置x轴偏移，满足位置需要
+					border : false 
+				},
+				tip:{
+					enable : true,
+		
+				},
+				crosshair:{
+					enable:true,
+					line_color:'#62bce9',
+					line_width:2
+				},
+				sub_option:{
+					label:false,
+					point_size:10 
+				},
+				background_color:'#f2f2f2',
+				coordinate:{
+					axis : {
+						width : [0, 0, 2, 0]
+					},
+					background_color:'#ffffff',
+					height:'80%',
+					scale:[{
+						 position:'left',	
+						 scale_space:10,
+						 scale_enable:false,//禁用小横线
+						 listeners:{
+							parseText:function(t,x,y){
+								return {text:t}
+							}
+						}
+					},{
+						 position:'bottom',	
+						 start_scale:1,
+						 end_scale:12,
+						 parseText:function(t,x,y){
+							return {textY:y+10}
+						 },
+						 labels:labels
+					}]
+				}
+			});
+			chart.draw();
+		
+		});
+			</script>
+
+
+
+<script type="text/javascript">
+radarChart.init(document.querySelector("#radar2"), {
+    data: {
+        maxValue: [100, 100, 100, 100,100, 100, 100],
+        value: [100, 100, 100, 100,100, 100, 100],
+            description: ["沟通", "写作", "架构", "绘图", "查阅资料","原创水平","汇报展示"]
+    },
+
+    config: {
+        scale: 1,
+        showTooltip: true,
+        dataLine: {
+            strokeStyle: "red",
+            lineWidth: 2
+        },
+        dataCircle: {
+            r: 4,
+            strokeStyle: "red",
+            fillStyle: "#eee",
+            lineWidth: 4
+        },
+        bg: {
+            layer: 9,
+            evenFillStyle: "#fefefe",
+            oddFillStyle: "#ddd",
+            evenStrokeStyle: "#999",
+            oddStrokeStyle: "#999"
+        }
+    }
+});
+
+</script>
+
+
+<script>
+			// 路径配置
+			require.config({
+				paths: {
+					echarts: 'echarts//build/dist'
+				}
+			});
+			// 使用
+			require(
+					[
+						'echarts',
+						'echarts/chart/radar' // 使用柱状图就加载bar模块，按需加载
+					],
+					function (ec) {
+						// 基于准备好的dom，初始化echarts图表
+						var myChart = ec.init(document.getElementById('skill_main'));
+
+						var option = {
+							title : {
+	
+								x:'center'
+							},
+							tooltip : {
+								trigger: 'axis'
+							},
+							polar : [
+								{
+									indicator : [
+										{ text: '中国公民', max: 100},
+										{ text: '世界公民', max: 100},
+										{ text: '学校公民', max: 100},
+										{ text: '企业公民', max: 100},
+										{ text: '社会公民', max: 100},
+										{ text: '职业公民', max: 100}
+									]
+								}
+							],
+							calculable : true,
+							series : [
+								{
+									name: '核心课程成绩',
+									type: 'radar',
+									data : [
+										{
+											value : [60, 80, 50, 70, 90, 60],
+											name : '核心课程成绩'
+										}
+									]
+								}
+							]
+						};
+						// 为echarts对象加载数据
+						myChart.setOption(option);
+					}
+			);
+</script>
+
+<script type="text/javascript">
+		$(function(){
+			var data = [
+			        	{name : 'A',value : 25,color:'#ebeff0'},
+			        	{name : 'B',value : 40,color:'#d7e2e4'},
+			        	{name : 'C',value : 20,color:'#dfe9eb'},
+			        	{name : 'D',value : 15,color:'#f1f7f8'}
+		        	];
+	    	
+			var chart = new iChart.Donut2D({
+				render : 'canvasDiv',
+				center:{
+					text:'25',
+					shadow:true,
+					fontsize:50,
+					shadow_offsetx:0,
+					shadow_offsety:2,
+					shadow_blur:2,
+					shadow_color:'#b7b7b7',
+					color:'#6f6f6f'
+				},
+				data: data,
+				shadow:true,
+				shadow_offsetx:0,
+				shadow_offsety:2,
+				shadow_blur:10,
+
+				separate_angle:4,//分离角度
+				increment:10,//弹出距离
+				sub_option:{
+					gradient:true,
+					color_factor:0.08,
+					gradient_mode:'RadialGradientInOut',
+					label:false
+				},
+				showpercent:true,
+				decimalsnum:2,
+				width :250,
+				height :200,
+				radius:140
+			});
+					
+			chart.bound(0);
+		});
+		</script>
+</html>

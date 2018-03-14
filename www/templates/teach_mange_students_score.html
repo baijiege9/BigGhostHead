@@ -1,0 +1,113 @@
+﻿{% extends 'base.html' %}
+{% block title %}学生成绩管理{% endblock %}
+{% block content %}
+<div class="container">
+<div class="row">
+<div class="col-lg-12">1</div>
+<div class="col-lg-12">1</div>
+			<div class="col-lg-12">
+			<div class="page-header">
+				 <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target=".bs-example-modal-sm">导入学生数据</button>
+			  <h3>班级学习课程</h3>
+			</div>
+			</div>
+					<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+					  <div class="modal-dialog modal-sm" role="document">
+					    <div class="modal-content">
+					    	
+					    <form action="import" name = "file" method="post" enctype="multipart/form-data">
+						 <div class="form-group">
+					    <label for="exampleInputFile">选择elsx</label>
+					    <input type="file"  name = "file" id = "file">
+					  </div>
+							<div class="modal-footer">
+				        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				        <button type="submit" class="btn btn-primary">导入</button>
+
+				      </div>
+				      	</form>
+					    </div>
+					  </div>
+					</div>
+
+</div>
+</div>
+<div class="container-fluid">
+<div class="row">
+	<div class="col-lg-12" >
+
+
+好的五个成绩
+<table class="table table-bordered">
+	{% for student_score in students_score %}
+	<thead>
+		<tr>
+			<th>学生名</th>
+			<th>学号</th>
+			<th>学校</th>
+			<th>{{student_score.best_kemu1}}</th>
+			<th>{{student_score.best_kemu2}}</th>
+			<th>{{student_score.best_kemu3}}</th>
+			<th>{{student_score.best_kemu4}}</th>
+			<th>{{student_score.best_kemu5}}</th>
+			<th style="width:10%;">操作</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>{{student_score.name}}</td>
+			<td>{{student_score.student_number}}</td>
+			<td>{{student_score.school}}</td>
+			<td>{{student_score.best_score1}}</td>
+			<td>{{student_score.best_score2}}</td>
+			<td>{{student_score.best_score3}}</td>
+			<td>{{student_score.best_score4}}</td>
+			<td>{{student_score.best_score5}}</td>
+			<td><a href="/api/students_score/{{student_score.id}}/delete">删除</a></td>
+		</tr>
+
+	</tbody>
+	{% endfor %}
+</table>
+{{pagination('/teach_manage/students_score?page=', page)}}
+		</div>
+<div class="col-lg-12" >
+坏的五个成绩
+<table class="table table-bordered">
+	{% for student_score in students_score %}
+	<thead>
+		<tr>
+			<th>学生名</th>
+			<th>学号</th>
+			<th>学校</th>
+			<th>{{student_score.bad_kemu1}}</th>
+			<th>{{student_score.bad_kemu2}}</th>
+			<th>{{student_score.bad_kemu3}}</th>
+			<th>{{student_score.bad_kemu4}}</th>
+			<th>{{student_score.bad_kemu5}}</th>
+			<th style="width:10%;">操作</th>
+
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>{{student_score.name}}</td>
+			<td>{{student_score.student_number}}</td>
+			<td>{{student_score.school}}</td>
+			<td>{{student_score.bad_score1}}</td>
+			<td>{{student_score.bad_score1}}</td>
+			<td>{{student_score.bad_score1}}</td>
+			<td>{{student_score.bad_score4}}</td>
+			<td>{{student_score.bad_score5}}</td>
+			<td><a href="/api/students_score/{{student_score.id}}/delete">删除</a></td>
+		</tr>
+	</tbody>
+	{% endfor %}
+</table>
+{{pagination('/teach_manage/students_score?page=', page)}}
+		</div>
+</div>
+
+				
+</div>
+{% endblock %}

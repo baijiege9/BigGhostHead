@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>惠州城市职业学院高级评价系统 - 首页</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link rel="styleSheet" href="css/reset.css">
+		<link rel="styleSheet" href="css/index_css.css">
+		<link rel="stylesheet" type="text/css" href="./bs/css/bootstrap.min.css">
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=uESHT3DE91FA7YXWYXos9zkfzvv9LN2L"></script>
+
+<style type="text/css">
+#carousel-example-generic{
+width: 100%;
+}
+  #l-map{height:300px;width:100%;}
+
+
+</style>
+
+	</head>
+	<body>
+		<!--pc端页面!-->
+		<div class="header hidden-xs">
+			<div class="head_content hidden-xs" >
+				<div class="head_left hidden-xs">
+				<div class="logo " style="height:76px;"></div>
+				</div>
+				<div class="head_right hidden-xs">
+					<ul class="i_navbg ">
+						<li><a class="active" href="index.html">首页</a></li>
+						<li><a href="JavaScript:void(0);" data-toggle="modal" data-target="#myModal">校园简介</a></li>
+						<li><a href="JavaScript:void(0);" data-toggle="modal" data-target=".bs-example-modal-sm">登录</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+<<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">校园简介</h4>
+      </div>
+      <div class="modal-body">
+      	 
+        惠州城市职业学院（英文全称：City College of Huizhou，英文简称：City C）是经广东省人民政府批准、国家教育部备案、广东省教育厅主管的一所公办全日制普通高等院校（学院代码：14510，高考录取批次：三批专科A线）。
+    学院前身为惠州商贸旅游高级职业技术学校，该校系由创办于1964年的三所公办中专学校——惠州商业学校、惠州外贸学校和惠州旅游学校合并成立，办学历史已超过半个世纪。 
+    学院位于惠州市惠城区惠南大道明德路，交通便利。校区占地面积30万平方米，校舍建筑面积20.2万平方米，校园具有“人文校园、生态校园、智慧校园、职业校园”的浓郁山水特色和现代风格。     
+    学院拥有一支实力雄厚的师资队伍，现有教职工628人，其中专任教师458人，专业课教师320人，基础理论课教师138人，有校外兼职教师58人。具有研究生学历或硕士以上学位教师占40%；具有副高以上职称教师105人；双师型教师235人。学校现有省级职教名家1人，省级专业名师1人，南粤优秀教师9人，省高校“优青”教师培养对象2人，东江学者1人，惠州市教育领军人才1人，惠州市首席教师13人。  
+    2016年学院开设会计、会计信息管理、国际经济与贸易、物流管理、社会工作、酒店管理、商务英语、建筑室内设计、动漫制作技术、计算机网络技术、电子商务、移动应用开发、新能源汽车技术、机电一体化技术、工业机器人技术等15个专业，招生对象为高中毕业生及中职毕业生。其中华澳国际学院（中澳合作专本连读学士项目）开设会计、电子商务、国际经济与贸易、计算机网络技术4个专业。
+    学院以培养高素质高级技术技能人才为目标，面向先进制造业及现代服务业，服务珠三角城市建设，为现代城市建设和发展提供服务和人力资源保障。
+      </div>
+      <div class="modal-footer">
+
+      </div>
+    </div>
+  </div>
+</div>
+
+		<!-- Modal -->
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+    
+    			<div class="login" style="width:297px;">
+					<div class="login_tab">
+						<span style="width:147.5px;" class="border_r active">教师</span><span style="width:147.5px;" class="border_r">学生</span>
+					</div>
+					<form action="teacher.html" class="form_active">
+						<div class="h_form">
+							<input class="login_text"  type="text" name="user">
+						</div>
+						<div class="h_form">
+							<input class="login_text text_mmbg"  type="password" name="user">
+						</div>
+						<div class="h_pwd">	
+							<a href="/">忘记登陆密码？</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<a href="/">没有账号？</a>
+						</div>
+						<div class="h_form">
+							<input class="login_btn" type="submit" name="user " value="登录">&nbsp;&nbsp;&nbsp;
+						</div>
+					</form>
+
+					<form action="student.html">
+						<div class="h_form">
+							<input class="login_text "  type="text" name="user">
+						</div>
+						<div class="h_form">
+							<input class="login_text text_mmbg"  type="password" name="user">
+						</div>
+						<div class="h_pwd">	
+							<a href="/">忘记登陆密码？</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+							<a href="/">没有账号？</a>
+						</div>
+						<div class="h_form h_right">
+							<input class="login_btn" type="submit" name="user " value="登录">&nbsp;&nbsp;&nbsp;
+						</div>
+					</form>
+
+				</div>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+		<!--手机页面!-->
+		<div class="header visible-xs-block" style="height:55px;">
+			<div class="head_content " >
+				<div class="head_left">
+
+				</div>
+			</div>
+
+				<div class="container">
+					<div class="row">
+					<div class="col-xs-6">
+		
+				</div>
+
+				<div class="col-xs-6">
+
+				<nav class="navbar navbar-default navbar-fixed-top "style="border:none; ">
+		  			<div class="container-fluid">
+		   			 <div class="navbar-header">
+		     		 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+		     	   <span class="sr-only"></span>
+		       	   <span class="icon-bar"></span>
+		           <span class="icon-bar"></span>
+		           <span class="icon-bar"></span>
+
+		      		</button>
+		      		 <a class="navbar-brand" href="#">惠州城市职业学院</a>
+
+					</div>
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" >
+
+			   <ul class="nav navbar-nav " >
+						<li><a class="active" href="index.html">首页</a></li>
+						<li><a href="JavaScript:void(0);">校园简介</a></li>
+						<li><a href="JavaScript:void(0);">登录</a></li>
+			    </ul>
+			    
+			 </div>
+		
+			</div>
+			</nav>
+		</div>
+
+		</div>
+		</div>
+		</div>
+
+
+
+		<!-- 轮播图!-->
+
+			  		<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+						  <!-- Indicators -->
+						  <ol class="carousel-indicators">
+						    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+						    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+						    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+						  </ol>
+
+
+						  <!-- Wrapper for slides -->
+						  <div class="carousel-inner" >
+						    <div class="item active">
+						<img src="./images/banner.jpg" alt="...">
+						      <div class="carousel-caption">
+						        ...
+						      </div>
+						    </div>
+
+						    <div class="item">
+						   <img src="./images/banner.jpg" alt="...">
+						      <div class="carousel-caption">
+						        ...
+						      </div>
+						    </div>
+						        <div class="item">
+						 <img src="./images/banner.jpg" alt="...">
+						      <div class="carousel-caption">
+						        ...
+						      </div>
+						    </div>
+						    ...
+						  </div>
+
+						  <!-- Controls -->
+						  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+						    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+						    <span class="sr-only">Previous</span>
+						  </a>
+
+						  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+						    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+						    <span class="sr-only">Next</span>
+						  </a>
+						</div>
+		<div class="container-fluid">
+		<div class="row">
+ 		 <div class="col-xs-12" style="border-bottom: 1px solid #ccc;"><h3 class="text-center">联系我们</h3><p class="text-center" style="font-size: 16px; color: #B1B1B1;">Contact us</p>
+ 		 	<span style="position: absolute;
+    display: block;
+    bottom: 0px;
+    width: 100px;
+    height: 2px;
+    background: #051864;
+    left: 50%;
+    margin-left: -50px;">&nbsp</span>
+			</div>
+			<div class="col-lg-6 col-md-6 " >
+				  <div id="l-map"></div>
+			</div>
+		
+			<div class="col-lg-3 col-md-6 " >
+				<p class="tb_phone" >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp招生电话：0752-3619501  2829661</p>
+				<p class="tb_fax visible-lg-inline-block visible-md-inline-block">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp传真：0752-2807650</p>
+				<p class="tb_email">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspEmail：chengshixueyuan@hzcs.com</p>
+				<p class="tb_zcode">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp邮编：516025</p>
+				<p class="tb_website">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp网址：www.hzc.edu.cn</p>
+			</div>
+		</div>
+		</div>
+		<div class="footer visible-lg-inline-block visible-md-inline-block">
+			<div class="foot_content">
+				<div class="foot_left">
+				<span>地址：惠州市三栋镇福长岭惠州城市职业学院</span>
+				<span>联系电话：0752-2829601</span>
+				</div>
+				<div class="foot_right">
+					<span>官网：www.hzcs.com.cn</span>
+				</div>
+			</div>
+		</div>
+
+	</body>
+<script  src="./jquery.min.js"></script>
+<script src="./bs/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+  // 百度地图API功能
+  var map = new BMap.Map("l-map");            // 创建Map实例
+  map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);
+  var local = new BMap.LocalSearch(map, {
+    renderOptions: {map: map, panel: "r-result"}
+  });
+  local.search("惠州城市职业学院");
+</script>
+				<script>
+			$(function(){
+				$('.login_tab span').click(function(){
+					var index = $(this).index();
+					$('.login_tab span').removeClass('active');
+					$(this).addClass('active');
+
+					$('.login form').removeClass('form_active');
+					$('.login form').eq(index).addClass('form_active');
+				})
+			})
+		</script>
+</html>

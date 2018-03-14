@@ -1,0 +1,715 @@
+﻿{% extends 'base.html' %}
+{% block title %}教师主页{% endblock %}
+{% block beforehead %}
+    	<!-- block meta  -->
+<style>
+
+.zoom {
+    vertical-align: middle;
+    -webkit-transition: -webkit-transform .5s;
+    transition: transform .5s;
+}
+.box:hover .zoom {
+    -webkit-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
+    zoom: 1.05;
+}
+.box:hover .zoom {
+    zoom: 1;
+}
+</style>
+ <script  src="/static/jquery.min.js"></script>
+<script src="/static/bs/js/bootstrap.min.js"></script>
+<script src="/static/echarts/build/dist/echarts.js"></script>
+<script type="/static/text/javascript" src="./js/radarChart.js"></script>
+		<script type="text/javascript">
+		$(function(){
+			var ll= [
+			         	{
+			         		name : '校级',
+			         		value:[45,52,54,60],
+			         		color:'#4f81bd'
+			         	},
+			         	{
+			         		name : '市级',
+			         		value:[60,80,105,80],
+			         		color:'#bd4d4a'
+			         	},
+			         	{
+			         		name : '省级',
+			         		value:[50,70,120,100],
+			         		color:'#98c045'
+			         	}
+			         ];
+	        
+			var chart = new iChart.ColumnStacked2D({
+					render : 'cxy',
+					data: ll,
+					labels:["一月","二月","三月","四月"],
+					title : {
+						text:'班级竞赛情况',
+						color:'#254d70'
+					},
+					footnote : '数据来源：销售中心',
+					width : 800,
+					height : 400,
+					column_width:90,
+					background_color : '#ffffff',
+					shadow : true,
+					shadow_blur : 2,
+					shadow_color : '#aaaaaa',
+					shadow_offsetx : 1,
+					shadow_offsety : 0, 
+					sub_option:{
+						label:{color:'#f9f9f9',fontsize:12,fontweight:600},
+						border : {
+							width : 2,
+							color : '#ffffff'
+						} 
+					},
+					label:{color:'#254d70',fontsize:12,fontweight:600},
+					percent:true,//标志为百分比堆积图
+					showpercent:true,
+					decimalsnum:1,
+					legend:{
+						enable:true,
+						background_color : null,
+						line_height:25,
+						color:'#254d70',
+						fontsize:12,
+						fontweight:600,
+						border : {
+							enable : false
+						}
+					},
+					coordinate:{
+						background_color : 0,
+						axis : {
+							color : '#c0d0e0',
+							width : 0
+						}, 
+						scale:[{
+							 position:'left',	
+							 scale_enable : false,
+							 start_scale:0,
+							 scale_space:50,
+							 label:{color:'#254d70',fontsize:11,fontweight:600}
+						}],
+						width:600,
+						height:260
+					}
+			});
+
+			//利用自定义组件构造左侧说明文本
+			chart.plugin(new iChart.Custom({
+					drawFn:function(){
+						//计算位置
+						var coo = chart.getCoordinate(),
+							x = coo.get('originx'),
+							y = coo.get('originy');
+						//在左上侧的位置，渲染一个单位的文字
+						chart.target.textAlign('start')
+						.textBaseline('bottom')
+						.textFont('600 11px Verdana')
+						.fillText(x-40,y-12,false,'#254d70');
+						
+					}
+			}));
+			
+			chart.draw();
+		});
+	</script>
+<script type="text/javascript">
+			var arr = [
+			        	{name : '校学生会',value : 100,color:'#a5c2d5'},
+			        	{name : '校团委',value : 3.22,color:'#cbab4f'},
+			        	{name : '魅影吉他社',value : 2.95,color:'#76a871'},
+			        	{name : '梦想足球社',value : 0.54,color:'#9f7961'},
+			        	{name : '舞蹈社',value : 0.45,color:'#a56f8f'},
+			        	{name : '体育社',value : 1.67,color:'#db9034'}
+		        	];
+					$(function(){
+						new iChart.Bar2D({
+								render : 'xzy',
+								data: arr,
+								title : '社团数据',
+								footnote : 'Data from StatCounter',
+								width : 800,
+								height : 400,
+								coordinate:{
+									width:640,
+									height:280,
+									scale:[{
+										 position:'bottom',	
+										 start_scale:0,
+										 end_scale:100,
+										 scale_space:10,
+										 listeners:{
+											parseText:function(t,x,y){
+												return {text:t+"%"}
+											}
+										 }
+									}]
+								},
+								rectangle:{
+									listeners:{
+										drawText:function(r,t){
+											return t+"%";
+										}
+									}
+								}
+						}).draw();
+					});
+			</script>
+
+		<script type="text/javascript">
+			$(function(){
+				var pv=[],ip=[],t;
+				//创建随机数据
+				for(var i=0;i<61;i++){
+					t = Math.floor(Math.random()*(30+((i%12)*5)))+10;
+					pv.push(t);
+					t = Math.floor(t*0.5);
+					t = t-Math.floor((Math.random()*t)/2);
+					ip.push(t);
+				}
+				
+				var data = [
+				         	{
+				         		name : '志愿者活动',
+				         		value:pv,
+				         		color:'	#00DB00',
+				         		line_width:2
+				         	},
+				         	{
+				         		name : '社会实践',
+				         		value:ip,
+				         		color:'	#EA7500',
+				         		line_width:2
+				         	}
+				         ];
+		         
+				//创建x轴标签文本   
+				var date = new Date();
+				date.setDate(date.getDate()-6);
+				var labels = [];
+				for(var i=0;i<6;i++){
+					date.setDate(date.getDate()+1);
+					labels.push(date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate());
+				}
+				
+				var chart = new iChart.Area2D({
+					render : 'zyh',
+					data: data,
+					align:'center',
+					title : '社会活动与志愿者数据',
+					width : 800,
+					height : 400,
+					background_color:'#FEFEFE',
+					tip:{
+						enable:true,
+						shadow:true,
+						move_duration:400,
+						border:{
+							 enable:true,
+							 radius : 5,
+							 width:2,
+							 color:'#3f8695'
+						},
+						listeners:{
+							 //tip:提示框对象、name:数据名称、value:数据值、text:当前文本、i:数据点的索引
+							parseText:function(tip,name,value,text,i){
+								return name+value+"分";
+							}
+						}
+					},
+					tipMocker:function(tips,i){
+						return "<div style='font-weight:600'>"+
+								labels[Math.floor(i/12)]+" "+//日期
+								(((i%12)*2<10?"0":"")+(i%12)*2)+":00"+//时间
+								"</div>"+tips.join("<br/>");
+					},
+					legend : {
+						enable : true,
+						row:1,//设置在一行上显示，与column配合使用
+						column : 'max',
+						valign:'top',
+						sign:'bar',
+						background_color:null,//设置透明背景
+						offsetx:-80,//设置x轴偏移，满足位置需要
+						border : true
+					},
+					crosshair:{
+						enable:true,
+						line_color:'#3f8695',
+						line_width:2
+					},
+					sub_option : {
+						label:false,
+						point_size:10
+					},
+					coordinate:{
+						width:640,
+						height:240,
+						axis:{
+							color:'#dcdcdc',
+							width:1
+						},
+						scale:[{
+							 position:'left',	
+							 start_scale:0,
+							 end_scale:100,
+							 scale_space:5,
+							 scale_size:3,
+							 scale_color:'#9f9f9f'
+						},{
+							 position:'bottom',	
+							 labels:labels
+						}]
+					}
+				});
+			
+			//开始画图
+			chart.draw();
+		});
+		</script>
+
+<script type="text/javascript">
+			$(function(){
+				var pv=[],ip=[],t;
+				//创建随机数据
+				for(var i=0;i<61;i++){
+					t = Math.floor(Math.random()*(30+((i%12)*5)))+10;
+					pv.push(t);
+					t = Math.floor(t*0.5);
+					t = t-Math.floor((Math.random()*t)/2);
+					ip.push(t);
+				}
+				
+				var data = [
+				         	{
+				         		name : '纪律',
+				         		value:pv,
+				         		color:'#aad0db',
+				         		line_width:2
+				         	},
+				         	{
+				         		name : '内务',
+				         		value:ip,
+				         		color:'#f68f70',
+				         		line_width:2
+				         	}
+				         ];
+		         
+				//创建x轴标签文本   
+				var date = new Date();
+				date.setDate(date.getDate()-6);
+				var labels = [];
+				for(var i=0;i<6;i++){
+					date.setDate(date.getDate()+1);
+					labels.push(date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate());
+				}
+				
+				var chart = new iChart.Area2D({
+					render : 'cbh',
+					data: data,
+					align:'center',
+					title : '书院生活指数',
+					width : 800,
+					height : 400,
+					background_color:'#FEFEFE',
+					tip:{
+						enable:true,
+						shadow:true,
+						move_duration:400,
+						border:{
+							 enable:true,
+							 radius : 5,
+							 width:2,
+							 color:'#3f8695'
+						},
+						listeners:{
+							 //tip:提示框对象、name:数据名称、value:数据值、text:当前文本、i:数据点的索引
+							parseText:function(tip,name,value,text,i){
+								return name+value+"分";
+							}
+						}
+					},
+					tipMocker:function(tips,i){
+						return "<div style='font-weight:600'>"+
+								labels[Math.floor(i/12)]+" "+//日期
+								(((i%12)*2<10?"0":"")+(i%12)*2)+":00"+//时间
+								"</div>"+tips.join("<br/>");
+					},
+					legend : {
+						enable : true,
+						row:1,//设置在一行上显示，与column配合使用
+						column : 'max',
+						valign:'top',
+						sign:'bar',
+						background_color:null,//设置透明背景
+						offsetx:-80,//设置x轴偏移，满足位置需要
+						border : true
+					},
+					crosshair:{
+						enable:true,
+						line_color:'#3f8695',
+						line_width:2
+					},
+					sub_option : {
+						label:false,
+						point_size:10
+					},
+					coordinate:{
+						width:600,
+						height:240,
+						axis:{
+							color:'#dcdcdc',
+							width:1
+						},
+						scale:[{
+							 position:'left',	
+							 start_scale:0,
+							 end_scale:100,
+							 scale_space:10,
+							 scale_size:2,
+							 scale_color:'#9f9f9f'
+						},{
+							 position:'bottom',	
+							 labels:labels
+						}]
+					}
+				});
+			
+			//开始画图
+			chart.draw();
+		});
+		</script>
+
+
+
+<script type="text/javascript">
+		$(function(){
+			var data = [
+			        	{
+			        		name : '人数',
+			        		value:[4,16,18,24,32,36,50,38,36,0,20,14],
+			        		color:'#aad0db',
+			        		line_width:2
+			        	},
+			        	{
+			        		name : '平均薪资',
+			        		value:[1,1,12,20,26,30,32,29,22,0,0,0],
+			        		color:'#f68f70',
+			        		line_width:2
+			        	}
+			        ];
+		    
+			var labels = ["01月","02月","03月","04月","05月","06月","07月","08月","09月","10月","11月","12月"];
+			
+			var chart = new iChart.Area2D({
+				render : 'can',
+				data: data,
+				title : '班级就业指数',
+				width :800,
+				height : 400,
+				legend : {
+					enable : true,
+					row:1,//设置在一行上显示，与column配合使用
+					column : 'max',
+					valign:'top',
+					background_color:null,//设置透明背景
+					offsetx:-30,//设置x轴偏移，满足位置需要
+					border : false 
+				},
+				tip:{
+					enable : true,
+		
+				},
+				crosshair:{
+					enable:true,
+					line_color:'#62bce9',
+					line_width:2
+				},
+				sub_option:{
+					label:false,
+					point_size:10 
+				},
+				background_color:'#f2f2f2',
+				coordinate:{
+					axis : {
+						width : [0, 0, 2, 0]
+					},
+					background_color:'#ffffff',
+					height:'80%',
+					scale:[{
+						 position:'left',	
+						 scale_space:10,
+						 scale_enable:false,//禁用小横线
+						 listeners:{
+							parseText:function(t,x,y){
+								return {text:t}
+							}
+						}
+					},{
+						 position:'bottom',	
+						 start_scale:1,
+						 end_scale:12,
+						 parseText:function(t,x,y){
+							return {textY:y+10}
+						 },
+						 labels:labels
+					}]
+				}
+			});
+			chart.draw();
+		
+		});
+			</script>
+
+
+
+<script type="text/javascript">
+radarChart.init(document.querySelector("#radar2"), {
+    data: {
+        maxValue: [100, 100, 100, 100,100, 100, 100],
+        value: [100, 100, 100, 100,100, 100, 100],
+            description: ["沟通", "写作", "架构", "绘图", "查阅资料","原创水平","汇报展示"]
+    },
+
+    config: {
+        scale: 1,
+        showTooltip: true,
+        dataLine: {
+            strokeStyle: "red",
+            lineWidth: 2
+        },
+        dataCircle: {
+            r: 4,
+            strokeStyle: "red",
+            fillStyle: "#eee",
+            lineWidth: 4
+        },
+        bg: {
+            layer: 9,
+            evenFillStyle: "#fefefe",
+            oddFillStyle: "#ddd",
+            evenStrokeStyle: "#999",
+            oddStrokeStyle: "#999"
+        }
+    }
+});
+
+</script>
+
+
+<script>
+			// 路径配置
+			require.config({
+				paths: {
+					echarts: 'echarts//build/dist'
+				}
+			});
+			// 使用
+			require(
+					[
+						'echarts',
+						'echarts/chart/radar' // 使用柱状图就加载bar模块，按需加载
+					],
+					function (ec) {
+						// 基于准备好的dom，初始化echarts图表
+						var myChart = ec.init(document.getElementById('skill_main'));
+
+						var option = {
+							title : {
+	
+								x:'center'
+							},
+							tooltip : {
+								trigger: 'axis'
+							},
+							polar : [
+								{
+									indicator : [
+										{ text: '中国公民', max: 100},
+										{ text: '世界公民', max: 100},
+										{ text: '学校公民', max: 100},
+										{ text: '企业公民', max: 100},
+										{ text: '社会公民', max: 100},
+										{ text: '职业公民', max: 100}
+									]
+								}
+							],
+							calculable : true,
+							series : [
+								{
+									name: '核心课程成绩',
+									type: 'radar',
+									data : [
+										{
+											value : [60, 80, 50, 70, 90, 60],
+											name : '核心课程成绩'
+										}
+									]
+								}
+							]
+						};
+						// 为echarts对象加载数据
+						myChart.setOption(option);
+					}
+			);
+</script>
+
+<script type="text/javascript">
+		$(function(){
+			var data = [
+			        	{name : 'A',value : 25,color:'#ebeff0'},
+			        	{name : 'B',value : 40,color:'#d7e2e4'},
+			        	{name : 'C',value : 20,color:'#dfe9eb'},
+			        	{name : 'D',value : 15,color:'#f1f7f8'}
+		        	];
+	    	
+			var chart = new iChart.Donut2D({
+				render : 'canvasDiv',
+				center:{
+					text:'25',
+					shadow:true,
+					fontsize:50,
+					shadow_offsetx:0,
+					shadow_offsety:2,
+					shadow_blur:2,
+					shadow_color:'#b7b7b7',
+					color:'#6f6f6f'
+				},
+				data: data,
+				shadow:true,
+				shadow_offsetx:0,
+				shadow_offsety:2,
+				shadow_blur:10,
+
+				separate_angle:4,//分离角度
+				increment:10,//弹出距离
+				sub_option:{
+					gradient:true,
+					color_factor:0.08,
+					gradient_mode:'RadialGradientInOut',
+					label:false
+				},
+				showpercent:true,
+				decimalsnum:2,
+				width :250,
+				height :200,
+				radius:140
+			});
+					
+			chart.bound(0);
+		});
+		</script>
+{% endblock %}
+{% block content %}
+
+<div class="container">
+<div class="row">
+<div class="col-lg-12">1</div>
+<div class="col-lg-12">1</div>
+			<div class="col-lg-12">
+			<div class="page-header">
+			  <h3>学生数据管理中心</h3>
+			</div>
+			</div>
+</div>
+</div>
+<div class="container">
+<div class="row">
+		
+			<div class="col-lg-12 col-xs-12 col-sm-12 col-md-12" >
+				<div class="box">
+					<div class="col-lg-6 col-xs-12 text-center zoom"style="background:#fa6567;height:135px;">
+					<a href="teach_manage/students_score" style="color:#fff;line-height:125px;font-size:45px;text-decoration: none;">
+						<i><img style="width:70px;height:70px;" src="/static/images/stu.png"></i>班级学生
+					</a>
+					</div>
+				</div>
+					<div class="box">
+					<div class="col-lg-6 col-xs-12 text-center zoom"style="background:#71c5f4;height:135px;">
+					<a href="/static/course.html" style="color:#fff;line-height:125px;font-size:45px;text-decoration: none;">
+						<i><img style="width:70px;height:70px;" src="/static/images/5.png"></i>学生成绩</a></div>
+					</div>
+					<div class="box">
+					<div class="col-lg-6 col-xs-12 text-center zoom"style="background:#64d293;height:135px;">
+					<a href="./learning.html" style="color:#fff;line-height:125px;font-size:45px;text-decoration: none;">
+					<i><img style="width:70px;height:70px;" src="/static/images/6.png"></i>学习课程</a></div>
+					</div>
+
+
+					<div class="box">
+					<div class="col-lg-6 col-xs-12 text-center zoom"style="background:#eace60;height:135px;">
+					<a href="./association.html" style="color:#fff;line-height:125px;font-size:45px;text-decoration: none;">
+					<i><img style="width:70px;height:70px;" src="/static/images/1.png"></i>学生社团</a></div>
+					</div>
+										<div class="box">
+					<div class="col-lg-6 col-xs-12 text-center zoom"style="background:#ea895f;height:135px;">
+					<a href="./practice.html" style="color:#fff;line-height:125px;font-size:45px;text-decoration: none;">
+					<i><img style="width:70px;height:70px;" src="/static/images/0.png"></i>社会实践</a></div>
+					</div>
+										<div class="box">
+					<div class="col-lg-6 col-xs-12 text-center zoom"style="background:#83a8c3;height:135px;">
+					<a href="./design.html" style="color:#fff;line-height:125px;font-size:45px;text-decoration: none;">
+					<i><img style="width:70px;height:70px;" src="/static/images/3.png"></i>毕业设计</a></div>
+					</div>
+
+
+			</div>
+</div>
+
+				<div class="box">
+					<div class="col-lg-6 col-xs-12 text-center zoom"style="background:#FF8EFF;height:135px;">
+					<a href="./activities.html" style="color:#fff;line-height:125px;font-size:45px;text-decoration: none;">
+					<i><img style="width:70px;height:70px;" src="/static/images/2.png"></i>文体活动</a></div>
+				</div>
+				<div class="box">
+					<div class="col-lg-6 col-xs-12 text-center zoom"style="background:#00CACA;height:135px;">
+					<a href="./life.html" style="color:#fff;line-height:125px;font-size:45px;text-decoration: none;">
+					<i><img style="width:70px;height:70px;" src="/static/images/7.png"></i>书院生活</a></div>
+				</div>
+			<div class="col-lg-12" >
+			<div class="page-header">
+			  <h3>班级统计</h3>
+			</div>
+			
+			<div class="col-lg-3" >
+				<div id='canvasDiv'></div>
+				<p class="text-center">&nbsp&nbsp&nbsp班级人数</p>
+			</div>
+			<div class="col-lg-4"  >
+						<p class="text-center">六民指数</p>
+				<div id="skill_main" style="height:157px;"></div>
+
+			</div>
+			<div class="col-lg-5" >
+					<p class="text-center">毕业论文</p>
+					<div id="radar2" class="radar"></div>
+			</div>
+			</div>
+
+			<div class="col-lg-12" >
+				<div id='can' style="width:100%;"></div>
+			</div>
+
+			<div class="col-lg-12" >
+				<div id='cbh' style="width:100%;"></div>
+			</div>
+
+			<div class="col-lg-12" >
+				<div id='zyh' style="width:100%;"></div>
+			</div>
+			
+			<div class="col-lg-12" >
+			<div id='xzy'></div>
+			</div>
+			<div class="col-lg-12" >
+			<div id='cxy'></div>
+			</div>
+</div>
+{% endblock %}

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<!--
+{% macro pagination(url, page) %}
+    <ul class="uk-pagination">
+        {% if page.has_previous %}
+            <li><a href="{{ url }}{{ page.page_index - 1 }}"><i class="uk-icon-angle-double-left"></i></a></li>
+        {% else %}
+            <li class="uk-disabled"><span><i class="uk-icon-angle-double-left"></i></span></li>
+        {% endif %}
+            <li class="uk-active"><span>{{ page.page_index }}</span></li>
+        {% if page.has_next %}
+            <li><a href="{{ url }}{{ page.page_index + 1 }}"><i class="uk-icon-angle-double-right"></i></a></li>
+        {% else %}
+            <li class="uk-disabled"><span><i class="uk-icon-angle-double-right"></i></span></li>
+        {% endif %}
+    </ul>
+{% endmacro %}
+-->
+    <link rel="stylesheet" href="/static/css/uikit.min.css">
+    <link rel="stylesheet" href="/static/css/uikit.gradient.min.css">
+    <link rel="stylesheet" href="/static/css/awesome.css" />
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/md5.js"></script>
+    <script src="/static/js/uikit.min.js"></script>
+    <script src="/static/js/awesome.js"></script>
+ <head>
+         <meta charset="utf-8" />
+        {% block meta %}<!-- block meta  -->{% endblock %}
+        <title>惠州城市职业学院高级评价系统 - {% block title %} ? {% endblock %}</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <link rel="styleSheet" href="/static/css/reset.css">
+        <link rel="styleSheet" href="/static/css/index_css.css">
+        <script src="/static/js/jquery-1.11.1.js"></script>
+        <link rel="stylesheet" type="text/css" href="/static/bs/css/bootstrap.min.css">
+        <script type="text/javascript" src="/static/js/ichart.1.2.1.min.js"></script>
+        <link rel="stylesheet" href="/static/css/demo.css" type="text/css"/>
+        <link rel="stylesheet" type="text/css" href="/static/css/radarChart.css">
+        {% block beforehead %}<!-- before head  -->{% endblock %}
+ </head>
+ <body>
+
+ <nav class="navbar navbar-default navbar-fixed-top" style="background:#333;">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" style="border:none;" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/teach_manage" style="color:#E0E0E0;">学生评价系统</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li ><a href="/" style="color:#E0E0E0;">首页<span class="sr-only">(current)</span></a></li>
+       
+      </ul>
+      <form class="navbar-form navbar-left" action="/teach_manage/sousuo" name = "text" method="post">
+        <div class="form-group">
+          <input type="text" class="form-control" style="width:100" placeholder="输入内容搜索学生名/可模糊搜索">
+        </div>
+        <button type="submit" class="btn btn-default" style="border:none;background:none;"><img style="width:25px;height:25px;" src="/static/images/shousuo.png">
+        </button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"style="color:#E0E0E0;
+          background:none;">欢迎: {{teacher_name}}<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">修改资料</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+            <!-- content -->
+            {% block content %}
+            {% endblock %}
+            <!-- // content -->
+ </body>
+ <script  src="/static/jquery.min.js"></script>
+<script src="/static/bs/js/bootstrap.min.js"></script>
+<script src="/static/echarts/build/dist/echarts.js"></script>
+<script type="text/javascript" src="/static/js/radarChart.js"></script>
+<script type="text/javascript">
+        $(function(){
+            var data = [
+                        {
+                            name : '人数',
+                            value:[4,16,18,24,32,36,50,38,36,0,20,14],
+                            color:'#aad0db',
+                            line_width:2
+                        },
+                        {
+                            name : '平均薪资',
+                            value:[1,1,12,20,26,30,32,29,22,0,0,0],
+                            color:'#f68f70',
+                            line_width:2
+                        }
+                    ];
+            
+            var labels = ["01月","02月","03月","04月","05月","06月","07月","08月","09月","10月","11月","12月"];
+            
+            var chart = new iChart.Area2D({
+                render : 'can',
+                data: data,
+                title : '班级就业指数',
+                width :800,
+                height : 400,
+                legend : {
+                    enable : true,
+                    row:1,//设置在一行上显示，与column配合使用
+                    column : 'max',
+                    valign:'top',
+                    background_color:null,//设置透明背景
+                    offsetx:-30,//设置x轴偏移，满足位置需要
+                    border : false 
+                },
+                tip:{
+                    enable : true,
+        
+                },
+                crosshair:{
+                    enable:true,
+                    line_color:'#62bce9',
+                    line_width:2
+                },
+                sub_option:{
+                    label:false,
+                    point_size:10 
+                },
+                background_color:'#f2f2f2',
+                coordinate:{
+                    axis : {
+                        width : [0, 0, 2, 0]
+                    },
+                    background_color:'#ffffff',
+                    height:'80%',
+                    scale:[{
+                         position:'left',   
+                         scale_space:10,
+                         scale_enable:false,//禁用小横线
+                         listeners:{
+                            parseText:function(t,x,y){
+                                return {text:t}
+                            }
+                        }
+                    },{
+                         position:'bottom', 
+                         start_scale:1,
+                         end_scale:12,
+                         parseText:function(t,x,y){
+                            return {textY:y+10}
+                         },
+                         labels:labels
+                    }]
+                }
+            });
+            chart.draw();
+        
+        });
+            </script>
+
+
+
+<script type="text/javascript">
+radarChart.init(document.querySelector("#radar2"), {
+    data: {
+        maxValue: [100, 100, 100, 100,100, 100, 100],
+        value: [100, 100, 100, 100,100, 100, 100],
+            description: ["沟通", "写作", "架构", "绘图", "查阅资料","原创水平","汇报展示"]
+    },
+
+    config: {
+        scale: 1,
+        showTooltip: true,
+        dataLine: {
+            strokeStyle: "red",
+            lineWidth: 2
+        },
+        dataCircle: {
+            r: 4,
+            strokeStyle: "red",
+            fillStyle: "#eee",
+            lineWidth: 4
+        },
+        bg: {
+            layer: 9,
+            evenFillStyle: "#fefefe",
+            oddFillStyle: "#ddd",
+            evenStrokeStyle: "#999",
+            oddStrokeStyle: "#999"
+        }
+    }
+});
+
+</script>
+</html>

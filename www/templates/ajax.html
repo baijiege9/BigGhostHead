@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AJAX_Test</title>
+</head>
+<body>
+    <script type = "text/javascript">
+    function send_ajax(){
+        var xmlhttp;
+        var type = document.getElementById("type").value;
+        var menu_name = document.getElementById("menu_name").value;
+        var key_value = document.getElementById("key_value").value;
+        var str;
+        if (window.XMLHttpRequest){// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp=new XMLHttpRequest();
+        }
+        else{// code for IE6, IE5
+            xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange=function(){
+            if (xmlhttp.readyState==4 && xmlhttp.status==200){
+                document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+            }
+        }
+        xmlhttp.open("GET", "/curl_create_menu/?type="+type+"menu_name="+menu_name+"key_value="+key_value, true);
+        xmlhttp.send();
+        document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+    }
+    </script>
+        type:<input type = "text" id = "type" /><br><br>
+        menu_name:<input type = "text" id = "menu_name" /><br><br>
+        key_value:<input type = "text" id = "key_value" /><br><br>
+        <input type = "button" onclick = "send_ajax()" value = "create_menu">
+    errmsg:<div id="myDiv"></div>
+    <form>
+</form>
+</body>
+</html>

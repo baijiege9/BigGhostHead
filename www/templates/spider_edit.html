@@ -1,0 +1,138 @@
+{% extends '__base__.html' %}
+
+{% block title %}编辑爬虫{% endblock %}
+
+{% block beforehead %}
+
+<script>
+
+var
+    ID = '{{ id }}',
+    action = '{{ action }}';
+
+function initVM(spider) {
+    var vm = new Vue({
+        el: '#vm',
+        data: spider,
+        methods: {
+            submit: function (event) {
+                event.preventDefault();
+                var $form = $('#vm').find('form');
+                $form.postJSON(action, this.$data, function (err, r) {
+                    if (err) {
+                        $form.showFormError(err);
+                    }
+                    else {
+                        return location.assign('/spider/manage_bigghosthead');
+                    }
+                });
+            }
+        }
+    });
+    $('#vm').show();
+}
+
+$(function () {
+    if (ID) {
+        getJSON('/api/spider/' + ID, function (err, spider) {
+            if (err) {
+                return fatal(err);
+            }
+            $('#loading').hide();
+            initVM(spider);
+        });
+    }
+    else {
+        $('#loading').hide();
+        initVM({
+            name: '',
+            summary: '',
+            content: ''
+        });
+    }
+});
+
+</script>
+
+{% endblock %}
+
+{% block content %}
+
+    <div class="uk-width-1-1 uk-margin-bottom">
+        <div class="uk-panel uk-panel-box">
+            <ul class="uk-breadcrumb">
+                <li><a href="/spider/manage_bigghosthead">爬虫列表</a></li>
+                <li><a href="/">博客首页</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="error" class="uk-width-1-1">
+    </div>
+
+    <div id="loading" class="uk-width-1-1 uk-text-center">
+        <span><i class="uk-icon-spinner uk-icon-medium uk-icon-spin"></i> 正在加载...</span>
+    </div>
+
+    <div id="vm" class="uk-width-2-3">
+        <form v-on="submit: submit" class="uk-form uk-form-stacked" >
+            <div class="uk-alert uk-alert-danger uk-hidden"></div>
+            <div class="uk-form-row">
+                <label class="uk-form-label">爬虫名字:</label>
+                <div class="uk-form-controls">
+                    <input v-model="spider_name" name="spider_name" type="text" placeholder="爬虫名字" class="uk-width-1-1">
+                </div>
+            </div>
+            <div class="uk-form-row">
+                <label class="uk-form-label">起点网址:</label>
+                <div class="uk-form-controls">
+                    <textarea v-model="url"  name="url" placeholder="起点网址" class="uk-width-1-1" style="resize:none;"></textarea>
+                </div>
+            </div>
+            <div class="uk-form-row">
+                <label class="uk-form-label">爬虫限定域名范围:</label>
+                <div class="uk-form-controls">
+                    <textarea v-model="allowed_domains" rows="3" name="allowed_domains" placeholder="allowed_domains" class="uk-width-1-1" style="resize:none;"></textarea>
+                </div>
+            </div>
+            <div class="uk-form-row">
+                <label class="uk-form-label">爬虫类型:</label>
+                <div class="uk-form-controls">
+                     <input v-model="spider_type" name="spider_type" type="radio" value = "JD"/>京东</br>
+                     <input v-model="spider_type" name="spider_type" type="radio"  value = "normal_blog"/>普通博客网站</br>
+                     <input v-model="spider_type" name="spider_type" type="radio" value = "normal_shop"/>普通电商网站 </br>
+                </div>
+            </div>
+            <div class="uk-form-row">
+                <label class="uk-form-label">网页标题xpath匹配式:</label>
+                <div class="uk-form-controls">
+                    <textarea v-model="xpath_title" rows="3" name="xpath_title" placeholder="可以为空" class="uk-width-1-1" style="resize:none;"></textarea>
+                </div>
+            </div>
+            <div class="uk-form-row">
+                <label class="uk-form-label">网页店铺xpath匹配式:</label>
+                <div class="uk-form-controls">
+                    <textarea v-model="xpath_store" rows="3" name="xpath_store" placeholder="可以为空" class="uk-width-1-1" style="resize:none;"></textarea>
+                </div>
+            </div>
+            <div class="uk-form-row">
+                <label class="uk-form-label">网页评论xpath匹配式:</label>
+                <div class="uk-form-controls">
+                    <textarea v-model="xpath_comment" rows="3" name="xpath_comment" placeholder="可以为空" class="uk-width-1-1" style="resize:none;"></textarea>
+                </div>
+            </div>
+            <div class="uk-form-row">
+                <label class="uk-form-label">网页内容xpth匹配式:</label>
+                <div class="uk-form-controls">
+                    <textarea v-model="xpath_text" rows="3" name="xpath_text" placeholder="可以为空" class="uk-width-1-1" style="resize:none;"></textarea>
+                </div>
+            </div>                                                            
+            <div class="uk-form-row">
+                <button type="submit" class="uk-button uk-button-primary"><i class="uk-icon-save"></i> 保存</button>
+                <a href="/spider/manage_bigghosthead" class="uk-button"><i class="uk-icon-times"></i> 取消</a>
+            </div>
+
+        </form>
+    </div>
+
+{% endblock %}

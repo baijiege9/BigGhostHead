@@ -1,0 +1,232 @@
+﻿.NEW-wrp {
+    background-image: url('../images/banner.jpg');
+}
+@media only screen and (max-width: 1024px){
+    .desktop .about-us .solution-content{
+        height: 600px;
+    }
+    .desktop .about-us .font-about{
+        padding: 16rem 4rem 1rem 5rem;
+        width: 100%;
+        margin-top: 0%;
+        float: none;
+        display: block;
+    }
+    .desktop .about-us .font-about p {
+        font-size: 1.3675rem;
+        line-height: 1.75rem;
+    }
+    .desktop .about-us .img-about{
+        margin-top: -56%;
+        margin-left: 6%;
+        float: none;
+        overflow: inherit;
+        display: block;
+    }
+    .desktop .about-us .content-wrapper p{
+        font-size: 1.3675rem;
+    }
+    .desktop .about-us .content-wrapper{
+        padding: 9rem 1rem 1rem 3rem!important;
+    }
+    .desktop .about-us .con-list-li{
+        height: 150px;
+    }
+    .desktop .about-us .con-list-li-text{
+        width: 570px;
+    }
+    .desktop .about-us .con-list-li-text p{
+        font-size: 1.1675rem;
+    }
+    .desktop .about-us .imgConcent{
+        width: 60%;
+    }
+    .desktop .about-us .cover-wrp .title-wrp .ene{
+        top:15% !important;
+    }
+    .desktop .about-us .cover-wrp .icon1{
+        margin-top: -2rem;
+    }
+}
+.NEW-head{
+    background-image: url('../images/black.png');
+}
+.about-us .solution-body {
+    padding-top: 89px;
+}
+.about-us .solution-content{
+    height: 310px;
+    margin: 68px auto;
+    height: 310px;
+    margin: 68px auto;
+    height: 310px;
+    margin: 68px auto;
+}
+.about-us .font-about {
+    float: left;
+    box-sizing: border-box;
+    display: inline-block;
+    width: 561px;
+    height: 295px;
+    padding: 34px 11px 0 40px;
+    background-color: #fff;
+    text-indent: 2em;
+}
+.about-us .img-about{
+    float: left;
+    display: inline-block;
+    width: 430px;
+    height: 295px;
+    padding-left: 20px;
+    overflow: hidden;
+}
+.about-us .cover-wrp .icon1{
+    margin-top: 3rem;
+    width: 70%;
+}
+.about-us .cover-wrp .title-wrp .cnc{
+    font-size: 36px;
+    line-height: 3.25rem;
+    color:#1D1D1D;
+}
+.about-us .cover-wrp .title-wrp .ene{
+    font-size: 34px;
+    position: absolute;
+    left: 42%;
+    top: 22%;
+    color: #B2CEFF;
+}
+.about-us .content-wrapper{
+    width:62rem;
+    height:359px;
+    margin-top:80px ;
+
+}
+.about-us .content-wrapper p{
+    color: #1D1D1D;
+    font-size: 16px;
+    line-height: 24px;
+    text-indent: 2em;
+}
+.about-us .con-list-li {
+    clear: both;
+    height: 130px;
+}
+
+.about-us .con-list {
+    margin: 40px 0 40px 10px;
+}
+.about-us .con-list-li-img {
+    float: left;
+    margin-right: 54px;
+}
+
+.about-us .con-list-li-text {
+    float: left;
+    font-size: 16px;
+    line-height: 20px;
+    width: 744px;
+}
+
+.con-list-li-text b {
+    font-size: 14px;
+    color: #BFBFBF;
+    line-height: 35px;
+}
+.about-us .con-list-li-text h3{
+    color: #1D1D1D;
+    font-size: 24px;
+}
+.about-us .content-wrappers{
+    width: 1200px;
+    height:467px;
+    margin-top: 50px;
+}
+.about-us .imgConcent{
+    width: 80%;
+}
+.mobilePhone .new_case{
+    height: 12rem;
+}
+.mobilePhone .new_case .title-wrp{
+    width: 6rem;
+}
+.mobilePhone .join-list{
+    width: 100%;
+}
+.mobilePhone .new_case .title-wrp .cn{
+    font-size: 2rem;
+    width: 9rem;
+    margin-left: -1.4rem;
+}
+.mobilePhone .new_case .title-wrp .en{
+    font-size: 2rem;
+    top: -1.6rem;
+    left: -3.1rem;
+    width: 13rem;
+}
+.mobilePhone .about-us .center-content .solution-body{
+    padding-top: 8rem;
+}
+.mobilePhone .about-us .center-content .solution-body .img-about{
+    margin-top: -129%;
+ }
+.mobilePhone .about-us .center-content .solution-body .img-about img{
+    width: 80%;
+}
+.mobilePhone .about-us .center-content .solution-body .font-about{
+    padding: 1rem 1rem 1rem 1rem;
+    width: 100%;
+}
+.mobilePhone .new_buisiness .cnc{
+    width: 14rem;
+    margin-left: -4rem;
+}
+.mobilePhone .new_buisiness .content-wrapper{
+    width: 100%;
+    padding: 6rem 1rem 1rem 1rem;
+    padding-top: 6rem!important;
+}
+.mobilePhone .new_buisiness .ene{
+    margin-left: -2rem;
+}
+.mobilePhone .content_about{
+    padding: 60px 0 20rem 0!important;
+}
+.mobilePhone .about-us .new_buisines .icon img{
+    width: 60% !important;
+}
+.mobilePhone .about-us .new_buisines .cnc{
+    margin-left: 0rem;
+    font-size: 1.66rem;
+    width: 12rem;
+}
+.mobilePhone .about-us .new_buisines .ene{
+    left: -8%!important;
+    top: 83%!important;
+}
+.mobilePhone .about-us .content_center .con-list-li-text{
+    float: none;
+    width: 100%;
+}
+.mobilePhone .about-us .content_center .con-list-li{
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+}
+.mobilePhone .about-us .covers .icon1 img{
+    width: 60%!important;
+}
+.mobilePhone .about-us .covers .cnc{
+    font-size: 1.66rem;
+}
+.mobilePhone .about-us .covers .ene{
+    left: 36%!important;
+    top: 20% !important;
+    font-size: 1.66rem!important;
+}
+.mobilePhone .about-us .title_contents{
+    top: 90% !important;
+}
+.mobilePhone .about-us .imgConcents{
+    width:30%;
+}

@@ -1,0 +1,180 @@
+﻿
+@media only screen and (max-width: 1024px) {
+    .desktop .newCase-list .case-list-img{
+        padding: 4rem 1rem 1rem 1rem;
+        float: none;
+        margin-left: 17%;
+    }
+
+    .desktop .case-list-li,.desktop .case-list-li-r{
+        height: 42rem;
+         }
+    .desktop .newCase-list  .case-list-content{
+        padding: 1rem 1rem 1rem 1rem;
+        margin-left: 9rem;
+        float: none;
+    }
+    .desktop .case-list-text p{
+        font-size: 1.2rem;
+    }
+}
+.cover-wrp {
+    position: relative;
+    width: 100%;
+    height: 561px;
+    height: 52vh;
+    color: #fff;
+    text-align: center;
+    background-color: #eee;
+    background-image: url('../images/banner.jpg');
+}
+.mobilePhone .new_case{
+    height: 12rem;
+}
+.mobilePhone .new_case .title-wrp{
+    width: 6rem;
+}
+.mobilePhone .new_case .title-wrp .cn{
+    font-size: 2rem;
+}
+.mobilePhone .new_case .title-wrp .en{
+    font-size: 2rem;
+    top: -1.6rem;
+    left: -0.4rem;
+}
+.mobilePhone .newCase-list .case-list-li-r{
+    height: 28rem;
+}
+.mobilePhone .newCase-list .case-list-li-r .case-list-img{
+    float: none;
+    padding: 1rem 1rem 1rem 1rem;
+    width:100%;
+    margin-left: 1rem;
+}
+.mobilePhone .newCase-list .case-list-li-r .case-list-img img{
+    width:90%;
+}
+.mobilePhone .newCase-list .case-list-li-r .case-list-content{
+    padding: 1rem 1rem 1rem 1rem;
+    float: none;
+    width: 100%;
+}
+.mobilePhone .newCase-list .case-list-li-r .case-list-content b{
+    font-size: 1.2rem;
+}
+.mobilePhone .newCase-list .case-list-li-r .case-list-content .case-list-text p{
+    font-size: 0.8375rem;
+}
+.mobilePhone .newCase-list .case-list-li{
+    height: 28rem;
+}
+.mobilePhone .newCase-list .case-list-li .case-list-img{
+    float: none;
+    padding: 1rem 1rem 1rem 1rem;
+    width:100%;
+    margin-left: 1rem;
+}
+.mobilePhone .newCase-list .case-list-li .case-list-img img{
+    width:90%;
+}
+.mobilePhone .newCase-list .case-list-li .case-list-content{
+    padding: 1rem 1rem 1rem 1rem;
+    float: none;
+    width: 100%;
+}
+.mobilePhone .newCase-list .case-list-li .case-list-content b{
+    font-size: 1.2rem;
+}
+.mobilePhone .newCase-list .case-list-li .case-list-content .case-list-text p{
+    font-size: 0.8375rem;
+}
+.cover-wrp .title-wrp {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 170px;
+}
+
+.cover-wrp .title-wrp .en {
+    position: relative;
+    top: -10px;
+    height: 38px;
+    font-family: MicrosoftYaHei-Bold;
+    font-size: 48px;
+    line-height: 51.5px;
+    letter-spacing: 8.6px;
+    color: #888888;
+    z-index: -1;
+}
+
+.cover-wrp .title-wrp .cn {
+    height: 39px;
+    font-family: MicrosoftYaHei-Bold;
+    font-size: 40px;
+    line-height: 51.5px;
+    letter-spacing: 0.8px;
+    color: #ffffff;
+}
+
+.case-list {
+    max-width: 1200px;
+    margin: 3rem auto;
+}
+
+.case-list-li,
+.case-list-li-r {
+    height: 421px;
+    transition: all 300ms linear;
+}
+.case-list-li:hover,
+.case-list-li-r:hover {
+    background-color: #fff;
+}
+
+.case-list-img {
+    float: left;
+    width: 550px;
+    padding: 58px 31px 53px 31px;
+}
+
+.case-list-content {
+    float: left;
+    width: 500px;
+    padding: 58px 31px 53px 31px;
+}
+
+.case-list-li-r .case-list-img,
+.case-list-li-r .case-list-content {
+    float: right
+}
+
+.case-list-title b {
+    font-size: 24px;
+}
+
+.case-list-title span {
+    color: #595959;
+    margin-left: 1rem;
+}
+
+.case-list-line {
+    background: #63bfff;
+    width: 58px;
+    height: 4px;
+    margin: 8px 0 16px -6px;
+}
+
+.case-list-text {
+    font-size: 16px;
+    line-height: 26px;
+}
+
+.case-list-text p+.case-list-text p {
+    margin-bottom: 10px;
+}
+
+body {
+    background-color: #EEEEEE;
+}

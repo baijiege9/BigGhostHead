@@ -1,7 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-
+"""
+*            佛曰:  
+*                   写字楼里写字间，写字间里程序员；  
+*                   程序人员写程序，又拿程序换酒钱。  
+*                   酒醒只在网上坐，酒醉还来网下眠；  
+*                   酒醉酒醒日复日，网上网下年复年。  
+*                   但愿老死电脑间，不愿鞠躬老板前；  
+*                   奔驰宝马贵者趣，公交自行程序员。  
+*                   别人笑我忒疯癫，我笑自己命太贱；  
+*                   不见满街漂亮妹，哪个归得程序员？  
+"""
 
 ' url handlers '
 
@@ -11,24 +21,63 @@ import markdown2
 
 import hashlib
 
+import time #time.sleep()
 import urllib
+import urllib.request
 from aiohttp import web
+from bs4 import BeautifulSoup
 import xlrd
+import cgi
 
 from coroweb import get, post
 from apis import Page, APIValueError, APIResourceNotFoundError
 
-from models import User, Comment, Blog, next_id, Students, Students_score, Spider
+from models import User, Comment, Blog, next_id, Students, Students_score, Spider, Langem
 from config import configs
 import xls_import
 import receive
 import access_token
-import urllib.request
+import web_text
 
+global _temp_spider_state
+_temp_spider_state = False
+global _temp_set
+_temp_set = set()
 COOKIE_NAME = 'awesession'
 _COOKIE_KEY = configs.session.secret
 new_access_token_instance = access_token.Basic()
 new_access_token_instance.run()
+
+
+@asyncio.coroutine
+def dead_thread():
+    global _temp_set
+    global _temp_spider_state
+    if _temp_spider_state == True:
+        print("dead start")
+        url = 'http://tech.sina.com.cn/'
+        user_agent = 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'  
+        headers = { 'User-Agent' : user_agent }  
+        request = urllib.request.Request(url=url,headers=headers, method = 'GET') 
+        try:
+            response = urllib.request.urlopen(request)
+        except:
+            pass
+        page = response.read().decode('utf-8')
+        soup = BeautifulSoup(page, 'lxml')
+        time1 = time.localtime(time.time())
+        url_time = tranform(time1.tm_year)+'-'+tranform(time1.tm_mon)+'-'+tranform(time1.tm_mday)
+        for a in soup.find_all('a'):
+            if url_time in str(a) and _temp_spider_state == True:
+                title = BeautifulSoup(urllib.request.urlopen(a.get('href')).read(), 'lxml').title.text
+                if title not in _temp_set:
+                    _temp_set.add(title)
+                    content = urllib.request.urlopen(a.get('href')).read().decode('utf-8')
+                    content = web_text.extract(content)
+                    langem = Langem(title=title.strip(), content=content.strip())
+                    test = yield from Langem.find(title)
+                    if test != None:
+                        yield from langem.save()
 
 def check_admin(request):
     if request.__user__ is None or not request.__user__.admin:
@@ -185,6 +234,7 @@ def index(*, page='1'):
         'page': page,
         'blogs': blogs
     }
+
 
 @get('/blog/{id}')
 def get_blog(id):
@@ -449,10 +499,7 @@ def spider_create_bigghosthead():
         'action': '/api/create_spider'
     }
 
-@get('/api/crawed/number')
-def get_crawed_number():
-    test = 1
-    return dict(number = test)
+
 
 @get('/api/spider/bigghosthead')
 def api_bigghosthead(*, page='1'):
@@ -766,3 +813,229 @@ def graduation2(request):
     return {
         '__template__' : 'graduation2.html'
     }
+
+#朗杰科技有限公司部分
+@get('/temp')
+def langem_index(request):
+    return {
+        "__template__" : 'default.html'
+    }
+
+@get('/zhxf')
+def langem_zhxf(request):
+    return {
+        "__template__" : 'zhxf.html'
+    }
+
+
+@get('/news')
+def langem_news(*, page='1'):
+    page_index = get_page_index(page)
+    num = yield from Langem.findNumber('count(id)')
+    page = Page(num,page_index)
+    if num == 0:
+        langems = []
+    else:
+        langems = yield from Langem.findAll(orderBy='create_time desc', limit=(page.offset, page.limit))
+    return {
+        '__template__': 'news.html',
+        'page': page,
+        'langems': langems
+    }
+
+@get('/manage/langem_news')
+def manage_news(*, page='1'):
+    return {
+        '__template__': 'manage_langem_news.html',
+        'page_index': get_page_index(page)
+    }
+
+@get('/api/langem_news')
+def api_langem_news(*, page='1'):
+    page_index = get_page_index(page)
+    num = yield from Langem.findNumber('count(id)')
+    p = Page(num, page_index)
+    if num == 0:
+        return dict(page=p, langems=())
+    langems = yield from Langem.findAll(orderBy='create_time desc', limit=(p.offset, p.limit))
+    return dict(page=p, langems=langems)
+
+@post('/api/langem_news')
+def api_create_langem_news(request, *, title, content):
+    check_admin(request)
+    if not title or not title.strip():
+        raise APIValueError('title', 'title cannot be empty.')
+    if not content or not content.strip():
+        raise APIValueError('content', 'content cannot be empty.')
+    langem = Langem(title=title.strip(), content=content.strip())
+    yield from langem.save()
+    return langem
+
+@get('/manage/langems/create')
+def manage_create_langem():
+    return {
+        '__template__': 'manage_langem_edit.html',
+        'id': '',
+        'action': '/api/langem_news'
+    }
+
+
+@post('/api/langem_news/{_id}/delete')
+def api_langem_news_delete(request, *, _id):
+    check_admin(request)
+    langem = yield from Langem.find(_id)
+    yield from langem.remove()
+    return dict(id=_id)
+
+@get('/about')
+def langem_about():
+    return {
+        '__template__':'about.html'
+    }
+
+@get('/api/start_spider')
+def start_spider(request):
+    global _temp_spider_state
+    check_admin(request)
+    _temp_spider_state = True
+    yield from dead_thread()
+    return "爬取完成"
+
+@get('/api/get_state')
+def get_state(*,request):
+    global _temp_spider_state
+    return str(_temp_spider_state)
+
+@get('/api/stop_spider')
+def stop_spider(request):
+    global _temp_spider_state
+    check_admin(request)
+    _temp_spider_state = False
+    return "_temp_spider_state == False"
+
+@get('/news/{id}')
+def get_news(*,id):
+    langem = yield from Langem.find(id)
+    content = langem.content
+    return {
+        '__template__': 'new.html',
+        'langem' : langem,
+    }
+
+def tranform(int):
+    if int<10:
+        return '0'+str(int)
+    else:
+        return str(int)
+
+@get('/api/crawed/number')
+def get_crawed_number():
+    num = yield from Langem.findNumber('count(id)')
+    langems = yield from Langem.findAll(orderBy='create_time desc', limit=(1, 10))
+    langem_text = ""
+    for langem in langems:
+        langem_text = langem_text +"<br>"+ str(langem.title)
+    return dict(number = num, langem_text = langem_text)
+
+@get('/manage/news_updata')
+def get_spider(*,request):
+    langems = yield from Langem.findAll(orderBy='create_time desc', limit=(1, 10))
+    #crawling_speed
+    #crawed_number
+    return {
+        '__template__': 'update_news.html',
+        "langems" : langems
+    }
+
+@post('/api/post_test_save')
+def post_test_save( *,request):
+    b_data = yield from request.read()
+    data = yield from request.text()
+    data1 = yield from request.post()
+    #temp = data.getall(data)
+    f = open('xls/temp.txt','a+')
+    time1 = time.localtime(time.time())
+    url_time = tranform(time1.tm_year)+'-'+tranform(time1.tm_mon)+'-'+tranform(time1.tm_mday)
+    print(url_time)
+    url_time = str(url_time)
+    f.write(str(url_time))
+    f.write(data+'\n')
+    data2 = request.headers
+    f.write("\nheaders:" + str(list(data2)))
+    data3 = str(list(request.GET))
+    print(data3)
+    f.write("\n\rGET:" + str(data3))
+    data4 = request.content
+    f.write("\ncontent:" + str(data4) + "\n")
+    print(data4)
+    #print(data2)
+    f.write("read:"+str(b_data)+"\n")
+    f.write("headers"+str(data2)+"\n")
+    #f.write("biaoji"+str(data2) + str(b_data)+ "\n")
+    for request_key in request:
+        f.write(str(request_key))
+    #f.write(xls_file.file.read())
+    # f.write(xls_file)
+    logging.info('____________________________________________________________')
+    f.close()
+    #temp = data['file']
+    #print(temp)
+    #filename = temp.filename
+    #temp_file = temp.file
+    #print(filename , temp_file)
+    #if xls.content_type != 'application/vnd.ms-excel' and xls.content_type != 'application/x-xls':
+    #    return '不要搞事情，你这个是病毒吗？并不是xls表格'
+    #print(request.post["SB"])
+    logging.info('____________________________________________________________')
+    #f.close()
+    return (data)
+
+@get('/api/post_test_save')
+def get_test_save(*,request):
+    f = open('xls/temp.txt', 'r')
+    temp = f.read()
+    f.close()
+    return temp
+
+@get('/test')
+def get_test_first(*,request):
+    return {
+        '__template__': 'test.html'
+    }
+
+@get('/tianjiachangdi')
+def get_test_tianjiachangdi(*,request):
+    return {
+        '__template__' : 'tianjiachangdi.html'
+    }
+
+@get('/xuanzheqiuyou')
+def get_test_xluanzheqiuyou(*,request):
+    return {
+        '__template__' : 'xuanzheqiuyou.html'
+    }
+
+
+@get('/second')
+def get_test_second(*,request):
+    return {
+        '__template__' : 'second.html'
+    }
+
+@get('/third')
+def get_test_third(*,request):
+    return {
+        '__template__' : 'third.html'
+    }
+
+@get('/PK')
+def get_test_PK(*, request):
+	return {
+		'__template__' : 'PK.html'
+	}
+
+@get('/kaiqiushunxu')
+def get_kai_qiu_shun_xu(*, request):
+	return {
+		'__template__' : 'kaiqiushunxu.html'
+	}

@@ -1,0 +1,179 @@
+
+{% extends '__base__.html' %}
+
+{% block title %}新闻爬虫{% endblock %}
+
+{% block beforehead %}
+
+
+<script type="text/javascript" src="js/jquery.js"></script> 
+<script type="text/javascript" src="js/highcharts.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    setInterval(function() {                                    
+        var x = (new Date()).getTime(); // current time  
+            $.getJSON('/api/crawed/number', function (data) {
+                var text = data.langem_text;
+                document.getElementById("p999").innerHTML = text;
+            });               
+        }, 1000);
+});
+                              
+$(function () {                                                                     
+$(document).ready(function() {                                                  
+    Highcharts.setOptions({                                                     
+        global: {                                                               
+            useUTC: false                                                       
+        }                                                                       
+    });                                                                        
+    var y=0;                                                   
+    var chart;                                                                  
+    $('#container').highcharts({                                                
+        chart: {                                                                
+            type: 'spline',                                                     
+            animation: Highcharts.svg, // don't animate in old IE               
+            marginRight: 10,                                                    
+            events: {                                                           
+                load: function() {
+                    // set up the updating of the chart each second             
+                    var series = this.series[0];                                
+                    setInterval(function() {                                    
+                        var x = (new Date()).getTime(); // current time  
+                            $.getJSON('/api/crawed/number', function (data) {
+                                y = data.number;    
+                            });
+                        series.addPoint([x, y], true, true);                    
+                    }, 1000);                                                   
+                }                                                               
+            }                                                                   
+        },                                                                      
+        title: {                                                                
+            text: '爬虫走势图--1秒'                                            
+        },                                                                      
+        xAxis: {                                                                
+            type: 'datetime',                                                   
+            tickPixelInterval: 100                                              
+        },                                                                      
+        yAxis: {                                                                
+            title: {                                                            
+                text: '爬虫爬取数量'                                                   
+            },                                                                  
+            plotLines: [{                                                       
+                value: 0,                                                       
+                width: 1,                                                       
+                color: '#808080'                                                
+            }]                                                                  
+        },                                                                      
+        tooltip: {                                                              
+            formatter: function() {                                             
+                    return '<b>'+ this.series.name +'</b><br/>'+                
+                    Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) +'<br/>'+
+                    Highcharts.numberFormat(this.y, 2);                         
+            }                                                                   
+        },                                                                      
+        legend: {                                                               
+            enabled: false                                                      
+        },                                                                      
+        exporting: {                                                            
+            enabled: false                                                      
+        },                                                                      
+        series: [{                                                              
+            name: '已爬取数据数量',                                                
+            data: (function() {                                                 
+                // generate an array of random data                             
+                var data = [],                                                  
+                    time = (new Date()).getTime(),                              
+                    i;                                                                                          
+                for (i = -11; i <= 0; i++) {                                    
+                    data.push({                                                 
+                        x: time + i * 1000,                                     
+                        y: Math.random()                                        
+                    });                                                         
+                }                                                               
+                return data;                                                    
+            })()                                                                
+        }]                                                                      
+    });                                                                         
+});                                                                             
+                                                                                
+});               
+</script>
+
+{% endblock %}
+
+{% block content %}
+
+    <div id="container" style="width:700px;height:400px;margin:0 auto;float:left;"></div>
+    <div id = "spider_data" style = "width:300px; height:400px; margin:1; float:right;">
+        <h3>爬虫基本信息</h3>
+        <table width="100%" border="1">
+  <tr>
+    <td>爬虫名称:</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>爬虫创建人:</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>爬虫起点:</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>爬虫限定域:</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>爬虫种类:</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>网页标题xpath匹配式:</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>网页店铺xpath匹配式:</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>商品评论xpath匹配式:</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>网页内容xpath匹配式:</td>
+    <td></td>
+  </tr>
+</table>
+    </div>
+    <div class="uk-width-medium-1-4"style = "float:right;">
+        <div class="uk-panel uk-panel-box">
+            <div class="uk-text-center">
+                <img class="uk-border-circle" width="120" height="120" src="/static/gogogogo.bmp">
+                <h3>
+                    <li><a href="/api/start_spider">启动爬虫</a></li>
+                    <li><a href="/api/stop_spider">停止爬虫</a></li>
+                </h3>
+            </div>
+        </div>
+        <div class="uk-panel uk-panel-header">
+
+        </div>
+    </div>
+    <div id = "data" style = "float:left;">
+        <li>
+            最近十条爬取数据查看：
+        </li>
+        <li id="p999">
+            载入中
+        </li>
+    </div>
+    <div id = "data2">
+        <li>
+            各节点爬取数量：
+        </li>
+        <li>
+            xx.xx.xx.xx：89
+        </li>
+    </div>
+{% endblock %}

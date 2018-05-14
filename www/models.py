@@ -126,3 +126,12 @@ class Product(Model):
     product = StringField(ddl='varchar(500)')
     productId = StringField(ddl='varchar(50)')
     store = StringField(ddl='varchar(50)')'''
+
+
+class Langem(Model):
+    __table__ = 'langem'
+
+    id = StringField(primary_key=True, default=next_id, ddl='varchar(50)')
+    content = TextField()
+    create_time = FloatField(default=time.time)
+    title = StringField(ddl='varchar(50)', default = '')

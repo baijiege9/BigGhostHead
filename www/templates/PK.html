@@ -1,0 +1,354 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/static/css/buttons1.css">
+    <link rel="stylesheet" href="/static/css/uikit.min.css">
+    <title>test</title>
+    <style type="text/css">
+        img{display:block;}
+        body {
+            background: #F0EFEF;
+        }
+        #rectangle{
+            position:relative;
+            width: 16rem;
+            height: 4rem;
+            margin-left: 0.5rem;
+            margin-top: 1rem;
+            background: #334535;
+            text-align:center;
+            font-size:2rem;
+            font-family:Microsoft YaHei;
+            color:#FFFFFF;
+        }
+        #rectangle:before{
+            content:'';
+            position:absolute;
+            width:0;
+            height:0;
+            border:2rem solid;
+            color:transparent;
+            border-left-color:#334535;
+            right:-4rem;
+            top:50%;
+            margin-top:-2rem;
+        }
+        [class^=tip-bubble]{
+            display:inline-block;
+            position:relative;
+            background-color:#000000;
+            width:10%;
+            height: 2%;
+            padding:20px;
+            color:#FFFFFF;
+            text-align:center;
+            font-size:3rem;
+            font-family:Microsoft YaHei;
+            border-radius:10px;
+            margin:50px;
+            box-shadow:1px 1px 2px #202020;
+            -o-box-shadow:1px 1px 2px #202020;
+            -moz-box-shadow:1px 1px 2px #202020;
+            -webkit-border-shadow:1px 1px 2px #202020;
+        }
+        [class^=tip-bubble]:before{
+            content:'';
+            position:absolute;
+            width:0;
+            height:0;
+            border:15px solid;
+            color:transparent;
+        }
+        .tip-bubble-left:before{
+            border-right-color:#202020;
+            border-right-color:#202020;
+            left:-30px;
+            top:50%;
+            margin-top:-15px;
+        }
+        .tip-bubble-left{
+            top: 45rem;
+            left:42%;
+            width:20%;
+            height: 20rem;
+        }
+        .tip-bubble-top:before{
+            border-bottom-color:#000000;
+            left:50%;
+            top:-30px;
+            margin-left:-15px;
+        }
+        .tip-bubble-top{
+            top: 40rem;
+            left:42%;
+            transform: translateX(-50%);
+            width:70%;
+            height: 12rem;
+        }
+        .tip-bubble-right:before{
+            border-left-color:#202020;
+            right:-30px;
+            top:50%;
+            margin-top:-15px;
+        }
+        .tip-bubble-bottom:before{
+            border-top-color:#202020;
+            bottom:-30px;
+            left:50%;
+            margin-left:-15px;
+        }
+        .tip-bubble-bottom{
+            top: 57%;
+            left:20%;
+            width:50%;
+            height: 5%;
+        }
+
+        a:link { 
+            color: #000000; 
+            text-decoration: none; 
+        } 
+        a:visited { 
+            color: #000000; 
+            text-decoration: none; 
+        } 
+        a:hover { 
+            color: #999999; 
+            text-decoration: underline; 
+        } 
+        .icon
+        {
+            background: url(/static/photo/icon.png) no-repeat; /*url为png图片的路径*/
+            /*width和line-height分别对应每个小图标的宽和高*/
+            width: 127px;    
+            line-height:127px;
+            display: inline-block;
+        }
+        .icon-small
+        {   /*png图片左上角为原点,往右往下均为负值*/
+            background-position: -236px -420px;/*对应小图标的坐标*/
+            height: 127px;
+        }
+        .icon-small1
+        {   /*png图片左上角为原点,往右往下均为负值*/
+            background-position: -45px -420px;/*对应小图标的坐标*/
+            height: 127px;
+        }
+        .icon-small2
+        {   /*png图片左上角为原点,往右往下均为负值*/
+            background-position: -427px -52px;/*对应小图标的坐标*/
+            height: 127px;
+        }
+        .icon-small3
+        {   /*png图片左上角为原点,往右往下均为负值*/
+            background-position: -45px -52px;/*对应小图标的坐标*/
+            height: 127px;
+        }
+        .icon-small4
+        {   /*png图片左上角为原点,往右往下均为负值*/
+            background-position: -45px -236px;/*对应小图标的坐标*/
+            height: 127px;
+        }
+        .icon-small5
+        {   /*png图片左上角为原点,往右往下均为负值*/
+            background-position: -427px -420px;/*对应小图标的坐标*/
+            height: 127px;
+        }
+        .icon-small6
+        {   /*png图片左上角为原点,往右往下均为负值*/
+            background-position: -236px -236px;/*对应小图标的坐标*/
+            height: 127px;
+        }
+        .icon-small7
+        {   /*png图片左上角为原点,往右往下均为负值*/
+            background-position: -60px -70px;/*对应小图标的坐标*/
+            height: 170px;
+        }
+        .icon-small8
+        {   /*png图片左上角为原点,往右往下均为负值*/
+            background-position: -60px -70px;/*对应小图标的坐标*/
+            height: 170px;
+        }
+        div.set_class
+        {
+            display:none;
+        }
+    </style>
+    <script src="static/js/jquery.js"></script>
+    <script>
+        $(document).ready(function(){
+            var temp = 0;
+            $("input.love").change(function(){
+                    var a = $("input[name='fangshi']:checked").val();
+                    $("div#rectangle").text(a);
+                if (temp == 0) {
+                    $("div.set_class").slideToggle("slow");
+                    temp = 1;
+                }
+            });
+        }); 
+    </script>
+</head>
+<body>
+    <div id= "head">
+        <svg width="100%" height="10%" style="background-color: #334535" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <a xlink:href="/third">
+                <rect x="5%" y="30%" width="8%" height="50%" rx="10" ry="10"
+                style="fill:#334535"/>
+                <line x1="6%" y1="50%" x2="12%" y2="50%" style="stroke:rgb(255,255,255);stroke-width:0.25rem"/>
+                <line x1="5%" y1="50%" x2="8%" y2="30%" style="stroke:rgb(255,255,255);stroke-width:0.25rem"/>
+                <line x1="5%" y1="50%" x2="8%" y2="70%" style="stroke:rgb(255,255,255);stroke-width:0.25rem"/>
+            </a>
+            <text style = "fill:white;" x="40%" y="60%" font-size="3rem" font-family="Microsoft YaHei" >PK设置</text>
+            <!--<rect width="300" height="100" rx="20" ry="20" style="fill:yellow;stroke-width:3;stroke:red"/>
+        -->
+    </svg>
+</div>
+<div id = "major" style="">
+    <div class = "add-user" style="width:100%; height:auto;">
+        <table cellspacing="35px" width="100%" frame="below"   >
+            <col style="width: 15%" />
+            <col style="width: 70%" />
+            <col style="width: 15%" />
+            <tr>
+                <td ><div class="icon icon-small"></div></td>
+                <td align="left"><div style="font-size:3rem;">卫生球</div><p style="font-size:1.5rem;">只记成绩，无任何pk</p></td>
+                <td align="right">
+                    <div class="i-check" id = "weishengqiu">
+                       <input class="love" type="radio" name="fangshi" value="卫生球设置"style="width:3rem;    height:3rem;" />    
+                   </div>  
+               </td>
+           </tr>
+           <tr>
+            <td>
+                <div class="icon icon-small3"></div>            
+            </td>
+            <td align="left"><div style="font-size:3rem;">比杆</div><p style="font-size:1.5rem;">根据杆数进行PK</p></td>
+            <td align="right">                
+                <div class="i-check">  
+                   <input class="love" type="radio" name="fangshi" value="比杆设置" style="width:3rem;    height:3rem;" />    
+               </div> 
+           </td>
+       </tr>
+       <tr>
+        <td>
+            <div class="icon icon-small2"></div>            
+        </td>
+        <td align="left">
+            <div style="font-size:3rem;">比洞</div>
+            <p style="font-size:1.5rem;">根据洞数进行PK</p>
+        </td>
+        <td align="right">                
+            <div class="i-check">  
+                <input class="love" type="radio" name="fangshi" value="比洞设置" style="width:3rem;    height:3rem;" />    
+            </div> 
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <div class="icon icon-small1"></div>            </td>
+            <td align="left"><div style="font-size:3rem;">斗地主</div><p style="font-size:1.5rem;">两个农民成绩结合斗地主</p></td>
+            <td align="right">                
+                <div class="i-check">  
+                   <input class="love" type="radio" name="fangshi" value="斗地主设置" style="width:3rem;    height:3rem;" />    
+               </div> 
+           </td>
+       </tr>
+       <tr>
+        <td>
+            <div class="icon icon-small4"></div>            </td>
+            <td align="left"><div style="font-size:3rem;">打老虎</div><p style="font-size:1.5rem;">成绩最好的当老虎</p></td>
+            <td align="right">                
+                <div class="i-check">  
+                   <input class="love" type="radio" name="fangshi" value="打老虎设置" style="width:3rem;    height:3rem;" />    
+               </div>
+           </td>
+       </tr>
+       <tr>
+        <td>
+            <div class="icon icon-small5"></div>            </td>
+            <td align="left"><div style="font-size:3rem;">拉丝比洞</div><p style="font-size:1.5rem;">分两组成绩集合进行</p></td>
+            <td align="right">                
+                <div class="i-check">  
+                   <input class="love" type="radio" name="fangshi" value="拉丝比洞设置" style="width:3rem;    height:3rem;" />    
+               </div>
+           </td>
+       </tr>
+       <tr>
+        <td>
+            <div class="icon icon-small6"></div>            </td>
+            <td align="left"><div style="font-size:3rem;">8421</div><p style="font-size:1.5rem;">分两组得分总和PK</p></td>
+            <td align="right">                
+                <div class="i-check">  
+                   <input class="love" type="radio" name="fangshi" value="8421设置" style="width:3rem;    height:3rem;" />    
+               </div>
+           </td>
+       </tr>
+   </table>
+
+</div>
+<div id = "set" class = "set_class" style="width:90%;
+height:35rem;
+background-color:#FFFFFF;
+-moz-box-shadow: 10px 10px 5px #888888; /* 老的 Firefox */
+box-shadow: 10px 10px 5px #888888;
+margin-left:50%;
+transform: translateX(-50%);
+border-radius:1rem;
+line-height:3rem">
+
+<div id = "rectangle">设置</div>
+
+<div style="float: left;border-radius:24px; width:20%; height:12rem;margin:1% 1%;">
+    <div style="margin-left:1.9rem;"><img  src="http://www.gravatar.com/avatar/acaf6447b99f073ffa75fa078d7d5c0c?d=mm&s=120" style="border-radius: 50%;width:9rem;height:9rem;"></div>
+    <div style="font-size: 2rem; text-align:center;line-height: 5rem;">小明</div>
+</div> 
+<div style="float: left;border-radius:24px; width:20%; height:12rem;margin:1% 1%;">
+    <div style="margin-left:1.9rem;"><img  src="http://p1.music.126.net/NObAKbQ7jLNJeKAtWA0j5g==/109951163278266601.jpg?param=140y140" style="border-radius: 50%;width:9rem;height:9rem;"></div>
+    <div style="font-size: 2rem; text-align:center;line-height: 5rem;">小红</div>
+</div> 
+<div style="float: left;border-radius:24px; width:20%; height:12rem;margin:1% 1%;">
+    <div style="margin-left:1.9rem;"><img  src="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=933754383,99212121&fm=58&bpow=429&bpoh=629" style="border-radius: 50%;width:9rem;height:9rem;"></div>
+    <div style="font-size: 2rem; text-align:center;line-height: 5rem;">小刚</div>
+</div> 
+<form>
+
+    <table style="font-size: 2rem;width:90%;" cellspacing="35px" align="center"> 
+        <tbody>
+            <tr style="border-top:3px dotted #000000;">
+               <td style="font-size:2rem;"><input type="radio" name="sex" value="male" checked style="height:3rem;width:3rem;">不让杆</td>
+               <td style="width: 20rem"><input type="radio" name="sex" value="female" style="height:3rem;width:3rem;">让杆</td>
+           </tr> 
+           <tr style="border-top:3px dotted #000000;">
+               <td style="font-size:2rem;"><input type="radio" name="dingdong" value="male" checked style="height:3rem;width:3rem;">顶洞</td>
+               <td style="width: 20rem"><input type="radio" name="dingdong" value="female" style="height:3rem;width:3rem;">不顶洞</td>
+           </tr> 
+           <tr style="border-top:3px dotted #000000;">
+               <td style="font-size:2rem;"><input type="radio" name="niao" value="male" checked style="height:3rem;width:3rem;">鸟+1</td>
+               <td style="width: 20rem"></td>
+           </tr> 
+           <tr style="border-top:3px dotted #000000;">
+               <td style="font-size:2rem;"><input type="radio" name="ying" value="male" checked style="height:3rem;width:3rem;">鹰+4</td>
+               <td style="width: 20rem"></td>
+           </tr> 
+       </tbody>
+   </table>
+</form>
+</div>
+<div id = "bottom" style="width:100%;height:6rem;background-color:#FFFFFF;">
+    <a href="/kaiqiushunxu" class="button button-raised button-caution" style="height:5rem;width:30%;font-size:2rem;line-height:5rem;margin-left:50%; margin-top:0.5rem;transform: translateX(-50%);border-radius:10px;background: linear-gradient(#E86721, #FDA056);border:3px solid #E55E13;"></i> 确定</a>
+</div>
+<div class = "tip-bubble-top" style="position:absolute;opacity:0.5;line-height:3rem">点击选择您所需玩的PK规则，进行详细设置。</div>
+        <!--
+        <div style="position:relative;width:100%;height:100%;">
+            <img src="first.jpg" height="100%" width = "100%"  />
+            <div style="position:absolute;width:100%;height:100%;z-indent:2;left:0;top:0;">
+                <div class = "tip-bubble-top">第一步：点击"添加场地"</div>
+                <div class = "tip-bubble-left">第二步: 点击“+”以加入球友</div> 
+                <div class = "tip-bubble-bottom">第三步：点击“下一步”进入PK设置</div>
+            </div>
+        </div>
+    -->
+
+</body>
+</html>

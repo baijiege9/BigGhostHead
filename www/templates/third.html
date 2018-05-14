@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="static/css/buttons1.css">
+    <title>test</title>
+    <style type="text/css">
+        img{display:block;}
+        body {
+            background: #F0EFEF;
+        }
+        [class^=tip-bubble]{
+            display:inline-block;
+            position:relative;
+            background-color:#000000;
+            width:10%;
+            height: 2%;
+            padding:20px;
+            color:#FFFFFF;
+            text-align:center;
+            font-size:2.5rem;
+            font-family:Microsoft YaHei;
+            border-radius:10px;
+            margin:50px;
+            box-shadow:1px 1px 2px #000000;
+            -o-box-shadow:1px 1px 2px #000000;
+            -moz-box-shadow:1px 1px 2px #000000;
+            -webkit-border-shadow:1px 1px 2px #000000;
+        }
+        [class^=tip-bubble]:before{
+            content:'';
+            position:absolute;
+            width:0;
+            height:0;
+            border:15px solid;
+            color:transparent;
+        }
+        .tip-bubble-left:before{
+            border-right-color:#000000;
+            border-right-color:#000000;
+            left:-30px;
+            top:50%;
+            margin-top:-15px;
+        }
+        .tip-bubble-left{
+            top: 45rem;
+            left:42%;
+            width:20%;
+            height: 20rem;
+        }
+        .tip-bubble-top:before{
+            border-bottom-color:#000000;
+            left:50%;
+            top:-30px;
+            margin-left:-15px;
+        }
+        .tip-bubble-top{
+            top: 50rem;
+            left:35%;
+            transform: translateX(-50%);
+            width:55%;
+            height: 8%;
+        }
+        .tip-bubble-right:before{
+            border-left-color:#000000;
+            right:-30px;
+            top:50%;
+            margin-top:-15px;
+        }
+        .tip-bubble-bottom:before{
+            border-top-color:#000000;
+            bottom:-30px;
+            left:50%;
+            margin-left:-15px;
+        }
+        .tip-bubble-bottom{
+            top: 57%;
+            left:20%;
+            width:50%;
+            height: 5%;
+        }
+
+        a:link { 
+            color: #000000; 
+            text-decoration: none; 
+        } 
+        a:visited { 
+            color: #000000; 
+            text-decoration: none; 
+        } 
+        a:hover { 
+            color: #999999; 
+            text-decoration: underline; 
+        } 
+        .table-b table td{border:0.3px solid #979696;line-height: 5rem;} 
+    </style>
+</head>
+<body>
+    <div id= "head">
+        <svg width="100%" height="10%" style="background-color: #334535" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <text style = "fill:white;" x="40%" y="60%" font-size="3rem" font-family="Microsoft YaHei" >创建球局</text>
+            <!--<rect width="300" height="100" rx="20" ry="20" style="fill:yellow;stroke-width:3;stroke:red"/>
+        -->
+        <a xlink:href="/test">
+            <rect x="5%" y="30%" width="8%" height="50%" rx="10" ry="10"
+            style="fill:#334535"/>
+            <line x1="6%" y1="50%" x2="12%" y2="50%" style="stroke:rgb(255,255,255);stroke-width:0.25rem"/>
+            <line x1="5%" y1="50%" x2="8%" y2="30%" style="stroke:rgb(255,255,255);stroke-width:0.25rem"/>
+            <line x1="5%" y1="50%" x2="8%" y2="70%" style="stroke:rgb(255,255,255);stroke-width:0.25rem"/>
+        </a>
+    </svg>
+</div>
+<div id = "major" style="">
+
+  <table border="0" style = "font-size: 3rem;border-spacing: 0px;border-collapse:collapse;">
+    <tr>
+      <td style="border-style: none none solid none;border-width: 1px;">深圳九龙山高尔夫乡村俱乐部</td>
+      <td style="text-align:right;width: 20rem;height:5rem;border-style: none none solid none;border-width: 1px;"><a class="button button-tiny" style="font-size:2rem;height:3rem;line-height:3rem;color:green;">修改</a></td>
+  </tr>
+  <tr>
+      <td style="border-style: none none solid none;border-width: 1px;">前9洞：A场&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;后9洞：B场</td>
+      <td style="text-align:right;width: 20rem;height:5rem;border-style: none none solid none;border-width: 1px;"><a class="button button-tiny" style="font-size:2rem;height:3rem;line-height:3rem;color:green;">修改</a></td>
+  </tr>
+</table>
+</div>
+<div class = "add-user" style="width:80%; height:25rem;margin:0% 10% 0% 12%;">
+<div style="float: left;border-radius:24px; width:20%; height:25rem;margin:20% 1%;border:#200 1px solid;">
+        <div style="margin-left:1.9rem;margin-top:5rem;"><img  src="http://www.gravatar.com/avatar/acaf6447b99f073ffa75fa078d7d5c0c?d=mm&s=120" style="border-radius: 50%;width:7rem;height:7rem;"></div>
+        <div style="font-size: 3rem; text-align:center;line-height: 5rem;">小明</div>
+    </div> 
+    <div style="float: left;border-radius:24px; width:20%; height:25rem; margin:20% 1%;border:#200 1px solid;">
+        <div style="margin-left:1.9rem;margin-top:5rem;"><img  src="http://p1.music.126.net/NObAKbQ7jLNJeKAtWA0j5g==/109951163278266601.jpg?param=140y140" style="border-radius: 50%;width:7rem;height:7rem;"></div>
+        <div style="font-size: 3rem; text-align:center;line-height: 5rem;">小红</div>
+    </div>
+<div style="float: left;border-radius:24px; width:20%; height:25rem; border:#200 1px solid;margin:20% 1%;">
+    <div style="margin-left:1.9rem;margin-top:5rem;"><img  src="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=933754383,99212121&fm=58&bpow=429&bpoh=629" style="border-radius: 50%;width:7rem;height:7rem;"></div>
+    <div style="font-size: 3rem; text-align:center;line-height: 5rem;">小刚</div>
+</div> 
+<div style="float: left;border-radius:24px; width:20%; height:25rem; border:#200 1px solid;margin:20% 1%;">
+    <div style="font-size: 3rem; text-align:center;line-height: 25rem;"><a href="/xuanzheqiuyou">＋</a></div>
+</div> 
+</div>
+
+<div id = "bottom" style="height:20rem;width:100%;margin:40rem 1px;">
+    <svg width="100%" height="6rem" style="background-color:#1E884A;border:" version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <a xlink:href="/PK">
+            <rect x="0" y="0" width="100%" height="100%" rx="10" ry="10" style="fill:#1E884A" />
+            <text style = "fill:white;" x="45%" y="60%" font-size="2rem" font-family="Microsoft YaHei">下一步</text>
+        </a>
+
+        <!--<rect width="300" height="100" rx="20" ry="20" style="fill:yellow;stroke-width:3;stroke:red"/>
+    -->
+</svg>
+</div>
+
+<!--
+    <div style="position:relative;width:100%;height:100%;">
+        <img src="first.jpg" height="100%" width = "100%"  />
+        <div style="position:absolute;width:100%;height:100%;z-indent:2;left:0;top:0;">
+            <div class = "tip-bubble-top">第一步：点击"添加场地"</div>
+            <div class = "tip-bubble-left">第二步: 点击“+”以加入球友</div> 
+            <div class = "tip-bubble-bottom">第三步：点击“下一步”进入PK设置</div>
+        </div>
+    </div>
+-->
+
+</body>
+</html>

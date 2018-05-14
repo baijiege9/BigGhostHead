@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html style="height:100%;" lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>{{  langem.title  }}</title>
+    <meta name="keywords" content="深圳朗杰科技有限公司" />
+    <meta name="description" content="深圳朗杰科技有限公司" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="Robots" content="all" />
+    <script type="text/javascript">
+        (function() {
+            function checkWebp() {
+              try {
+                  return (document.createElement('canvas').toDataURL('image/webp').indexOf('data:image/webp') == 0);
+              } catch (err) {
+                  return false;
+              }
+            }
+            document.cookie = 'webp=' + (checkWebp() ? 1 : 0)
+        })()
+    </script>
+    <link rel="stylesheet" href="/static/langem/css/reset_2.css">
+    <link rel="stylesheet" href="/static/langem/css/jquery.fullpage.min_2.css">
+    <link rel="stylesheet" href="/static/langem/css/animate.min_2.css">
+    <link rel="stylesheet" href="/static/langem/css/master_2.css">
+    <link rel="stylesheet" href="/static/langem/css/header_2.css">
+    <link rel="stylesheet" href="/static/langem/css/header_mobile_2.css">
+    <link rel="stylesheet" href="/static/langem/css/master_mobile_2.css" media="screen and (max-width: 1024px)">
+
+    <link rel="stylesheet" type="text/css" href="/static/langem/css/style_2.css" />
+    <link rel="stylesheet" type="text/css" href="/static/langem/css/hide_2.css" />
+    <link rel="stylesheet" type="text/css" href="/static/langem/css/jquery.ma.infinitypush_2.css" />
+
+<link rel="stylesheet" href="/static/langem/css/news_2.css">
+</head>
+<body style="height:100%;overflow-x: hidden;">
+<header>
+    <div class="content">
+        <div class="logo">
+            <a href="/">
+                <span class="icon-logo"></span>
+            </a>
+        </div>
+        <div class="menu">
+            <a class="menu-btn">
+                <span class="icon-menu-btn"></span>
+            </a>
+            <div id="body">
+
+
+                <div id="wrapper">
+                    <nav class="menu-con" id="primary-navigation">
+                        <ul>
+                            <li class="home"><a href="/"><div class="cn">首页</div><div class="en">HOME</div></a></li>
+                        </ul>
+                        <ul>
+                            <li class="solution"><a class="nav"><div class="cn">解决方案</div><div class="en">SOLUTION</div></a>
+                            <div>
+                            <ul class="ul">
+                                    <li><a href="/zhxf" class="a_a"><span class="icon-wrp iocn-2"></span><span class="icon-name">智慧消防</span></a></li>
+                           </ul>
+                            </div>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li class="news"><a class="nav" href="/news"><div class="cn">行业动态</div><div class="en">NEWS</div></a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li class="about"><a class="nav" href="/about"><div class="cn">关于我们</div><div class="en">ABOUT</div></a>
+                                <ul>
+                                    <li><a href="/about" class="a_a">公司简介</a></li>
+                                    <li><a href="/#page4" class="a_a">联系方式</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li class="join"><a class="nav" href="/manage/langem_news"><div class="cn">管理后台</div><div class="en">JOIN</div></a>
+                            </li>
+
+                        </ul>
+                        <ul>
+                            <li class="QRCode"><a id="window_btn_qr">二维码</a>
+                                <ul id="QRCode-wrp">
+                                    <span class="sjjc"></span>
+                                    <div>
+                                        <img src="picture/wx_qrcode_2.jpg" width="100%">
+                                    </div>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<div id="main">
+    <div class="post" style="margin:120px auto;max-width:778px;">
+        <h1 class="post-title" style="text-align: center;font-size:28px">{{  langem.title  }}</h1>
+        <h2 class="post-create-time" style="text-align: center;font-size:20px">{{ langem.create_time|datetime }}</h2>
+        {{  langem.content|safe  }}
+    </div>
+</div>
+
+<!--
+<footer class="footers">
+    <div class="info">
+        <div class="logo">
+            <img src="/static/langem/picture/logo_2.png" alt="">
+        </div>
+        <div class="line"></div>
+        <p>© 2015  All Rights Reserved.　</p>
+    </div>
+    <div class="footer">
+        <a href="#">解决方案</a>
+        <ul>
+            <li><a class="able" href="/zhxf"><span>智慧消防</span></a></li>
+
+        </ul>
+        <a style="margin-left: 80px;" href="#" class="newOurs">关于我们</a>
+        <ul>
+            <li><a class="able" href="/about"><span>公司简介</span></a></li>
+            <li><a class="able" href="/#page4"><span>联系方式</span></a></li>
+        </ul>
+
+        <a style="margin-left: 80px;" class="able new_a1" href="/casus" >案例</a>
+        <a class="able new_a2" href="/news">行业动态</a>
+        <a class="able new_a3" href="/manage/langem_news">管理后台</a>
+        <a style="margin-left: 200px; margin-right: 5px;" href="#" class="new_a4">服务热线:</a>
+        <a style="font-size: 15px;margin-left: 0; color: #00E4FF;" class="new_a5">0755-82438858</a>
+        <a>
+            <img style="margin-top: 35px;" src="/static/langem/picture/qrcode_fff_2.png" alt="右上角关注微信公众号" title="右上角关注微信公众号" width="30px">
+        </a>
+    </div>
+</footer>
+-->
+<script src="/static/langem/js/jquery.min_2.js" charset="utf-8"></script>
+<script src="/static/langem/js/jquery.fullpage.min_2.js" charset="utf-8"></script>
+<script src="/static/langem/js/index_2.js" charset="utf-8"></script>
+<script type="text/javascript" src="/static/langem/js/jquery-ui-1.10.2.custom.min_2.js"></script>
+<script type="text/javascript" src="/static/langem/js/jquery.ma.infinitypush_2.js"></script>
+<script>
+    $(document).ready(function(){
+
+        function responsive() {
+            if($(window).width() <= 767){
+                console.log('mobile navigation');
+
+                $('#primary-navigation').infinitypush();
+
+                $('body').removeClass('desktop');
+                $('body').addClass('mobilePhone');
+            } else {
+                console.log('desktop navigation');
+
+                $('#primary-navigation').infinitypush({
+                    destroy:true
+                });
+
+                $('body').addClass('desktop');
+                $('body').removeClass('mobilePhone');
+            }
+        }
+
+        function windowResize(){
+            $(window).resize(function(){
+                responsive();
+            });
+        }
+
+        responsive();
+        windowResize();
+
+    });
+    $("body").height( $(window).height() );
+
+    var joinMeun = $('.join-list-meun');
+    $(document).scroll(function (event) {
+        var offsetTop = $(document).scrollTop();
+        if (offsetTop < 450) {
+            $('header').removeClass('suspend');
+            $('body').removeClass('suspends')
+            if (joinMeun.length !== 0 && $('.join-list-meun').hasClass('suspend')) {
+                $('.join-list-meun').removeClass('suspend')
+            }
+        } else if (offsetTop < 500) {
+            if (joinMeun.length !== 0 && $('.join-list-meun').hasClass('suspend')) {
+                $('.join-list-meun').removeClass('suspend')
+            }
+        } else {
+            $('header').addClass('suspend');
+            $('body').addClass('suspends')
+            if (joinMeun.length !== 0 && !($('.join-list-meun').hasClass('suspend'))) {
+                $('.join-list-meun').addClass('suspend')
+
+            }
+        }
+    })
+    // header 样式
+    $('.menu-con > li.current').removeClass('current')
+    var pathname = window.location.pathname;
+    console.log('当前的pathname ', pathname);
+    if (pathname === '/') {
+        $('.menu-con .home').addClass('current')
+    } else if (['/zhsz', '/zhsq', '/zhxf'].indexOf(pathname) !== -1) {
+        $('.menu-con .solution').addClass('current')
+    } else if (pathname === '/casus') {
+        $('.menu-con .casus').addClass('current')
+    } else if (pathname === '/news') {
+        $('.menu-con .news').addClass('current')
+    } else if (['/about', '/zhuanli'].indexOf(pathname) !== -1) {
+        $('.menu-con .about').addClass('current')
+    } else if (pathname === '/join') {
+        $('.menu-con .join').addClass('current')
+    }
+    $('.solution ul').mouseover(function(event){
+        //……
+        console.log(1)
+        event.stopPropagation();
+    })
+</script>
+</body>
+</html>
+
+

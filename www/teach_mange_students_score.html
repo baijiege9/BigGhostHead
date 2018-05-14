@@ -1,0 +1,315 @@
+﻿<!DOCTYPE html>
+<html lang="UTF-8">
+ <head>
+		<title>惠州城市职业学院高级评价系统 - 教师主页</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<link rel="styleSheet" href="/static/css/reset.css">
+		<link rel="styleSheet" href="/static/css/index_css.css">
+		<script src="/static/js/jquery-1.11.1.js"></script>
+		<link rel="stylesheet" type="text/css" href="/static/bs/css/bootstrap.min.css">
+				<script type="text/javascript" src="/static/js/ichart.1.2.1.min.js"></script>
+		<link rel="stylesheet" href="/static/css/demo.css" type="text/css"/>
+		 <link rel="stylesheet" type="text/css" href="/static/css/radarChart.css">
+ </head>
+ <body>
+
+ <nav class="navbar navbar-default navbar-fixed-top" style="background:#333;">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" style="border:none;" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#" style="color:#E0E0E0;">学生评价系统</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li ><a href="#" style="color:#E0E0E0;">首页<span class="sr-only">(current)</span></a></li>
+       
+      </ul>
+      <form class="navbar-form navbar-left">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="输入内容搜索学生名">
+        </div>
+        <button type="submit" class="btn btn-default" style="border:none;background:none;"><img style="width:25px;height:25px;" src="/static/images/shousuo.png">
+        </button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"style="color:#E0E0E0;
+          background:none;">欢迎: {{teacher_name}}<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">修改资料</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+<div class="row">
+<div class="col-lg-12">1</div>
+<div class="col-lg-12">1</div>
+			<div class="col-lg-12">
+			<div class="page-header">
+				 <button type="button" class="btn btn-primary pull-right" data-toggle="modal" data-target=".bs-example-modal-sm">导入学生数据</button>
+			  <h3>班级学习课程</h3>
+			</div>
+			</div>
+					<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+					  <div class="modal-dialog modal-sm" role="document">
+					    <div class="modal-content">
+					    	
+					    <form action="import" name = "file" method="post" enctype="multipart/form-data">
+						 <div class="form-group">
+					    <label for="exampleInputFile">选择elsx</label>
+					    <input type="file"  name = "file" id = "file">
+					  </div>
+							<div class="modal-footer">
+				        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				        <button type="submit" class="btn btn-primary">导入</button>
+
+				      </div>
+				      	</form>
+					    </div>
+					  </div>
+					</div>
+
+</div>
+</div>
+<div class="container-fluid">
+<div class="row">
+	<div class="col-lg-12" >
+
+
+好的五个成绩
+<table class="table table-bordered">
+	{% for student_score in students_score %}
+	<thead>
+		<tr>
+			<th>学生名</th>
+			<th>学号</th>
+			<th>学校</th>
+			<th>{{students_score.best_kemu1}}</th>
+			<th>{{students_score.best_kemu2}}</th>
+			<th>{{students_score.best_kemu3}}</th>
+			<th>{{students_score.best_kemu4}}</th>
+			<th>{{students_score.best_kemu5}}</th>
+			<th style="width:10%;">操作</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>{{students_score.name}}</td>
+			<td>{{students_score.student_number}}</td>
+			<td>{{students_score.school}}</td>
+			<td>{{students_score.best_score1}}</td>
+			<td>{{students_score.best_score2}}</td>
+			<td>{{students_score.best_score3}}</td>
+			<td>{{students_score.best_score4}}</td>
+			<td>{{students_score.best_score5}}</td>
+			<td><a href="/api/students_score/{{students_score.id}}/delete">删除</a></td>
+		</tr>
+
+	</tbody>
+	{% endfor %}
+</table>
+    {{ pagination('/?page=', page) }}
+		</div>
+<div class="col-lg-12" >
+坏的五个成绩
+<table class="table table-bordered">
+	{% for student_score in students_score %}
+	<thead>
+		<tr>
+			<th>学生名</th>
+			<th>学号</th>
+			<th>学校</th>
+			<th>{{student_score.bad_kemu1}}</th>
+			<th>{{student_score.bad_kemu2}}</th>
+			<th>{{student_score.bad_kemu3}}</th>
+			<th>{{student_score.bad_kemu4}}</th>
+			<th>{{student_score.bad_kemu5}}</th>
+			<th style="width:10%;">操作</th>
+
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>{{student_score.name}}</td>
+			<td>{{student_score.student_number}}</td>
+			<td>{{student_score.school}}</td>
+			<td>{{student_score.bad_score1}}</td>
+			<td>{{student_score.bad_score1}}</td>
+			<td>{{student_score.bad_score1}}</td>
+			<td>{{student_score.bad_score4}}</td>
+			<td>{{student_score.bad_score5}}</td>
+			<td><a href="/api/students_score/{{student_score.id}}/delete">删除</a></td>
+		</tr>
+	</tbody>
+	{% endfor %}
+</table>
+
+		</div>
+</div>
+
+				
+</div>
+ </body>
+ <script  src="/static/jquery.min.js"></script>
+<script src="/static/bs/js/bootstrap.min.js"></script>
+<script src="/static/echarts/build/dist/echarts.js"></script>
+<script type="text/javascript" src="/static/js/radarChart.js"></script>
+<script type="text/javascript">
+		$(function(){
+			var data = [
+			        	{
+			        		name : '人数',
+			        		value:[4,16,18,24,32,36,50,38,36,0,20,14],
+			        		color:'#aad0db',
+			        		line_width:2
+			        	},
+			        	{
+			        		name : '平均薪资',
+			        		value:[1,1,12,20,26,30,32,29,22,0,0,0],
+			        		color:'#f68f70',
+			        		line_width:2
+			        	}
+			        ];
+		    
+			var labels = ["01月","02月","03月","04月","05月","06月","07月","08月","09月","10月","11月","12月"];
+			
+			var chart = new iChart.Area2D({
+				render : 'can',
+				data: data,
+				title : '班级就业指数',
+				width :800,
+				height : 400,
+				legend : {
+					enable : true,
+					row:1,//设置在一行上显示，与column配合使用
+					column : 'max',
+					valign:'top',
+					background_color:null,//设置透明背景
+					offsetx:-30,//设置x轴偏移，满足位置需要
+					border : false 
+				},
+				tip:{
+					enable : true,
+		
+				},
+				crosshair:{
+					enable:true,
+					line_color:'#62bce9',
+					line_width:2
+				},
+				sub_option:{
+					label:false,
+					point_size:10 
+				},
+				background_color:'#f2f2f2',
+				coordinate:{
+					axis : {
+						width : [0, 0, 2, 0]
+					},
+					background_color:'#ffffff',
+					height:'80%',
+					scale:[{
+						 position:'left',	
+						 scale_space:10,
+						 scale_enable:false,//禁用小横线
+						 listeners:{
+							parseText:function(t,x,y){
+								return {text:t}
+							}
+						}
+					},{
+						 position:'bottom',	
+						 start_scale:1,
+						 end_scale:12,
+						 parseText:function(t,x,y){
+							return {textY:y+10}
+						 },
+						 labels:labels
+					}]
+				}
+			});
+			chart.draw();
+		
+		});
+			</script>
+
+
+
+<script type="text/javascript">
+radarChart.init(document.querySelector("#radar2"), {
+    data: {
+        maxValue: [100, 100, 100, 100,100, 100, 100],
+        value: [100, 100, 100, 100,100, 100, 100],
+            description: ["沟通", "写作", "架构", "绘图", "查阅资料","原创水平","汇报展示"]
+    },
+
+    config: {
+        scale: 1,
+        showTooltip: true,
+        dataLine: {
+            strokeStyle: "red",
+            lineWidth: 2
+        },
+        dataCircle: {
+            r: 4,
+            strokeStyle: "red",
+            fillStyle: "#eee",
+            lineWidth: 4
+        },
+        bg: {
+            layer: 9,
+            evenFillStyle: "#fefefe",
+            oddFillStyle: "#ddd",
+            evenStrokeStyle: "#999",
+            oddStrokeStyle: "#999"
+        }
+    }
+});
+
+</script>
+<script>
+
+function initVM(data) {
+    var vm = new Vue({
+        el: '#vm',
+        data: {
+            students_score: data.students_score,
+            page: data.page
+        },
+        methods: {
+        }
+    });
+    $('#vm').show();
+}
+
+$(function() {
+    getJSON('/api/students_score', {
+        page: {{ page_index }}
+    }, function (err, results) {
+        if (err) {
+            return fatal(err);
+        }
+        $('#loading').hide();
+        initVM(results);
+    });
+});
+
+</script>
+
+</html>

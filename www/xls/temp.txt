@@ -1,0 +1,43 @@
+　　　　{"id":"10", "version":"2.0", "name":"lisi"}]
+headers:['X-Real-IP', 'Host', 'X-Forwarded-For', 'Connection', 'Content-Length', 'Accept', 'Content-Type', 'Cache-Control', 'Pragma', 'User-Agent']<CIMultiDict('X-Real-IP': '39.106.72.110', 'Host': 'www.baijiege.top', 'X-Forwarded-For': '39.106.72.110', 'Connection': 'close', 'Content-Length': '111', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8', 'Content-Type': 'application/x-www-form-urlencoded', 'Cache-Control': 'no-cache', 'Pragma': 'no-cache', 'User-Agent': 'Java/1.8.0_77')>b'\xe3\x80\x80[{"id":"5", "version":"1.0", "name":"xiaowang"},\r\n\r\n\xe3\x80\x80\xe3\x80\x80\xe3\x80\x80\xe3\x80\x80{"id":"10", "version":"2.0", "name":"lisi"}]'2018-04-27　[{"id":"5", "version":"1.0", "name":"xiaowang"},
+
+　　　　{"id":"10", "version":"2.0", "name":"lisi"}]
+
+headers:['X-Real-IP', 'Host', 'X-Forwarded-For', 'Connection', 'Content-Length', 'Accept', 'Content-Type', 'Cache-Control', 'Pragma', 'User-Agent']
+GET:<MultiDictProxy()>
+content:<FlowControlStreamReader eof><CIMultiDict('X-Real-IP': '39.106.72.110', 'Host': 'www.baijiege.top', 'X-Forwarded-For': '39.106.72.110', 'Connection': 'close', 'Content-Length': '111', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8', 'Content-Type': 'application/x-www-form-urlencoded', 'Cache-Control': 'no-cache', 'Pragma': 'no-cache', 'User-Agent': 'Java/1.8.0_77')>b'\xe3\x80\x80[{"id":"5", "version":"1.0", "name":"xiaowang"},\r\n\r\n\xe3\x80\x80\xe3\x80\x80\xe3\x80\x80\xe3\x80\x80{"id":"10", "version":"2.0", "name":"lisi"}]'2018-04-27　[{"id":"5", "version":"1.0", "name":"xiaowang"},
+
+　　　　{"id":"10", "version":"2.0", "name":"lisi"}]
+
+headers:['X-Real-IP', 'Host', 'X-Forwarded-For', 'Connection', 'Content-Length', 'Accept', 'Content-Type', 'Cache-Control', 'Pragma', 'User-Agent']
+GET:[]2018-04-27　[{"id":"5", "version":"1.0", "name":"xiaowang"},
+
+　　　　{"id":"10", "version":"2.0", "name":"lisi"}]
+
+headers:['X-Real-IP', 'Host', 'X-Forwarded-For', 'Connection', 'Content-Length', 'Accept', 'Content-Type', 'Cache-Control', 'Pragma', 'User-Agent']
+GET:[]
+content:<FlowControlStreamReader eof><CIMultiDict('X-Real-IP': '39.106.72.110', 'Host': 'www.baijiege.top', 'X-Forwarded-For': '39.106.72.110', 'Connection': 'close', 'Content-Length': '111', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8', 'Content-Type': 'application/x-www-form-urlencoded', 'Cache-Control': 'no-cache', 'Pragma': 'no-cache', 'User-Agent': 'Java/1.8.0_77')>b'\xe3\x80\x80[{"id":"5", "version":"1.0", "name":"xiaowang"},\r\n\r\n\xe3\x80\x80\xe3\x80\x80\xe3\x80\x80\xe3\x80\x80{"id":"10", "version":"2.0", "name":"lisi"}]'2018-04-27　[{"id":"5", "version":"1.0", "name":"xiaowang"},
+
+　　　　{"id":"10", "version":"2.0", "name":"lisi"}]
+
+headers:['X-Real-IP', 'Host', 'X-Forwarded-For', 'Connection', 'Content-Length', 'Accept', 'Content-Type', 'Cache-Control', 'Pragma', 'User-Agent']
+GET:[]
+content:<FlowControlStreamReader eof>
+<CIMultiDict('X-Real-IP': '39.106.72.110', 'Host': 'www.baijiege.top', 'X-Forwarded-For': '39.106.72.110', 'Connection': 'close', 'Content-Length': '111', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8', 'Content-Type': 'application/x-www-form-urlencoded', 'Cache-Control': 'no-cache', 'Pragma': 'no-cache', 'User-Agent': 'Java/1.8.0_77')>b'\xe3\x80\x80[{"id":"5", "version":"1.0", "name":"xiaowang"},\r\n\r\n\xe3\x80\x80\xe3\x80\x80\xe3\x80\x80\xe3\x80\x80{"id":"10", "version":"2.0", "name":"lisi"}]'
+2018-04-27　[{"id":"5", "version":"1.0", "name":"xiaowang"},
+
+　　　　{"id":"10", "version":"2.0", "name":"lisi"}]
+
+headers:['X-Real-IP', 'Host', 'X-Forwarded-For', 'Connection', 'Content-Length', 'Accept', 'Content-Type', 'Cache-Control', 'Pragma', 'User-Agent']
+GET:[]
+content:<FlowControlStreamReader eof>
+biaoji<CIMultiDict('X-Real-IP': '39.106.72.110', 'Host': 'www.baijiege.top', 'X-Forwarded-For': '39.106.72.110', 'Connection': 'close', 'Content-Length': '111', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8', 'Content-Type': 'application/x-www-form-urlencoded', 'Cache-Control': 'no-cache', 'Pragma': 'no-cache', 'User-Agent': 'Java/1.8.0_77')>b'\xe3\x80\x80[{"id":"5", "version":"1.0", "name":"xiaowang"},\r\n\r\n\xe3\x80\x80\xe3\x80\x80\xe3\x80\x80\xe3\x80\x80{"id":"10", "version":"2.0", "name":"lisi"}]'
+2018-04-27　[{"id":"5", "version":"1.0", "name":"xiaowang"},
+
+　　　　{"id":"10", "version":"2.0", "name":"lisi"}]
+
+headers:['X-Real-IP', 'Host', 'X-Forwarded-For', 'Connection', 'Content-Length', 'Accept', 'Content-Type', 'Cache-Control', 'Pragma', 'User-Agent']
+GET:[]
+content:<FlowControlStreamReader eof>
+read:b'\xe3\x80\x80[{"id":"5", "version":"1.0", "name":"xiaowang"},\r\n\r\n\xe3\x80\x80\xe3\x80\x80\xe3\x80\x80\xe3\x80\x80{"id":"10", "version":"2.0", "name":"lisi"}]'
+headers<CIMultiDict('X-Real-IP': '39.106.72.110', 'Host': 'www.baijiege.top', 'X-Forwarded-For': '39.106.72.110', 'Connection': 'close', 'Content-Length': '111', 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8', 'Content-Type': 'application/x-www-form-urlencoded', 'Cache-Control': 'no-cache', 'Pragma': 'no-cache', 'User-Agent': 'Java/1.8.0_77')>

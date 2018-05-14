@@ -1,0 +1,11 @@
+    allowed_domains = [
+        "jd.com",
+        "item.jd.com",
+        "yp.jd.com",
+        "club.jd.com",
+        "www.jd.com",
+        "mall.jd.com",
+        "list.jd.com",
+        "gongyi.jd.com",
+        "sclub.jd.com"
+    ]
